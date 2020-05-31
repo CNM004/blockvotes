@@ -32,7 +32,12 @@
 
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:applicationContext.xml</param-value>
+		<param-value>
+			/WEB-INF/data-source-hiber-cfg.xml,
+         	/WEB-INF/dao-cfg.xml,
+          	/WEB-INF/transaction-cfg.xml,	
+			classpath:applicationContext.xml
+		</param-value>
 	</context-param>
 
 	<listener>
