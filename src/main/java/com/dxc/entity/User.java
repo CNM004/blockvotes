@@ -27,6 +27,9 @@ public class User extends BaseObject implements java.io.Serializable {
 	@Column(name="fullname")
 	String fullname;
 	
+	@Column(name="email")
+	String email;
+	
 	@Column(name="status")
 	boolean status;
 	
@@ -79,6 +82,14 @@ public class User extends BaseObject implements java.io.Serializable {
 
 	public void setVoted(boolean isVoted) {
 		this.isVoted = isVoted;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 }

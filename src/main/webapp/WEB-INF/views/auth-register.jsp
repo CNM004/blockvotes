@@ -43,16 +43,16 @@
 						</div>
 
 						<div class="card-body">
-							<form method="POST">
+							<form:form method="POST" action="register" modelAttribute="user">
 								<div class="row">
 									<div class="form-group col-6">
-										<label for="frist_name">First Name</label>
-										<input id="frist_name" type="text" class="form-control" name="frist_name"
+										<label for="fullname">Full Name</label>
+										<input id="fullname" type="text" class="form-control" name="fullname"
 											autofocus>
 									</div>
 									<div class="form-group col-6">
-										<label for="last_name">Last Name</label>
-										<input id="last_name" type="text" class="form-control" name="last_name">
+										<label for="identity">Identity card number</label>
+										<input id="identity" type="text" class="form-control" name="identity">
 									</div>
 								</div>
 
@@ -75,12 +75,11 @@
 									</div>
 									<div class="form-group col-6">
 										<label for="password2" class="d-block">Password Confirmation</label>
-										<input id="password2" type="password" class="form-control"
-											name="password-confirm">
+										<input id="password2" type="password" class="form-control">
 									</div>
 								</div>
 
-								<div class="row">
+								<%-- <div class="row">
 									<div class="form-group col-12">
 										<label>Country</label>
 										<select class="form-control selectric">
@@ -91,22 +90,22 @@
 											<option>Thailand</option>
 										</select>
 									</div>
-								</div>
+								</div> --%>
 
-								<div class="form-group">
+								<!-- <div class="form-group">
 									<div class="custom-control custom-checkbox">
 										<input type="checkbox" name="agree" class="custom-control-input" id="agree">
 										<label class="custom-control-label" for="agree">I agree with the terms and
 											conditions</label>
 									</div>
-								</div>
+								</div> -->
 
 								<div class="form-group">
 									<button type="submit" class="btn btn-primary btn-lg btn-block">
 										Register
 									</button>
 								</div>
-							</form>
+							</form:form>
 						</div>
 					</div>
 					<div class="simple-footer">

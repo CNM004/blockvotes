@@ -8,4 +8,7 @@ import com.dxc.entity.User;
 @Service
 public interface UserService {
 	List<User> findAll();
+	User findOne(Long id);
+	void save(User entity);
+	void update(User entity);
 }

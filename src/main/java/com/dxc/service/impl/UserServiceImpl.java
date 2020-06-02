@@ -24,4 +24,22 @@ public class UserServiceImpl implements UserService {
 		return userDao.findAll();
 	}
 
+	@Override
+	public User findOne(Long id) {
+		// TODO Auto-generated method stub
+		return userDao.findOne(id);
+	}
+
+	@Override
+	public void save(User entity) {
+		// TODO Auto-generated method stub
+		userDao.save(entity);
+	}
+
+	@Override
+	public void update(User entity) {
+		// TODO Auto-generated method stub
+		userDao.update(entity);
+	}
+
 }

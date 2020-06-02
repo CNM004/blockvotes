@@ -89,8 +89,8 @@ public class HomeController {
 
 	@GetMapping("/admin")
 	public String admin() {
-		List<User> users = userService.findAll();
-		return "admin";
+		//List<User> users = userService.findAll();
+		return "auth-register";
 	}
 
 	@SuppressWarnings("serial")

@@ -31,4 +31,22 @@ public class UserDaoImpl implements UserDao {
 		return list;
 	}
 
+	@Override
+	public User findOne(Long id) {
+		// TODO Auto-generated method stub
+		return sessionFactory.getCurrentSession().get(User.class, id);
+	}
+
+	@Override
+	public void save(User entity) {
+		// TODO Auto-generated method stub
+		sessionFactory.getCurrentSession().save(entity);
+	}
+
+	@Override
+	public void update(User entity) {
+		// TODO Auto-generated method stub
+		sessionFactory.getCurrentSession().update(entity);
+	}
+
 }
