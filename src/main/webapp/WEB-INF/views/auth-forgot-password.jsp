@@ -22,50 +22,59 @@
 	<link rel="stylesheet" type="text/css"
 		href="<c:url value='/asset/css/core/menu/menu-types/vertical-overlay-menu.css' />">
 	<link rel="stylesheet" type="text/css" href="<c:url value='/asset/css/style.css' />">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
 		integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
 	<script src="<c:url value='/asset/js/jquery.min.js' />" type="text/javascript"></script>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+		integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+		crossorigin="anonymous"></script>
 
 </head>
 
-<div id="app">
-	<section class="section">
-		<div class="container mt-5">
-			<div class="row">
-				<div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
 
-					<div class="card card-primary">
-						<div class="card-header">
-							<h4>Forgot Password</h4>
-						</div>
+        <div class="card card-primary">
+          <div class="card-header">
+            <h4>Forgot Password</h4>
+          </div>
 
-						<div class="card-body">
-							<p class="text-muted">We will send a link to reset your password</p>
-							<form method="POST">
-								<div class="form-group">
-									<label for="email">Email</label>
-									<input id="email" type="email" class="form-control" name="email" tabindex="1"
-										required autofocus>
-								</div>
+          <div class="card-body">
+            <p class="text-muted">We will send a link to reset your password</p>
+            <form method="POST">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email" type="email" class="form-control" name="email" tabindex="1" required autofocus>
+              </div>
 
-								<div class="form-group">
-									<button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
-										Forgot Password
-									</button>
-								</div>
-							</form>
-						</div>
-					</div>
-					<div class="simple-footer mt-5">
-						Copyright &copy; Blockvotes
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-</div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
+                  Forgot Password
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <footer class="footer mt-5">
+          <div class="container">
+            <span class="text-muted">Copyright &copy; Blockvotes</span>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </div>
 
 <script type="text/javascript">
 	$(document).ready(function () {
