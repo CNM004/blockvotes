@@ -36,68 +36,46 @@
 <div class="container">
 <div class="content-header row">
 	<div class="content-header-left col-md-6 col-xs-12 mb-1">
-		<h2 class="content-header-title">Blockchain-based e-voting system</h2>
-	</div>
-</div>
-
-<br>
-<div id="historiesAll" style="">
-<div class="content-header row">
-	<div class="content-header-left col-md-6 col-xs-12 mb-1">
-		<h2 class="content-header-title">Lịch sử bầu cử</h2>
+		<h2 class="content-header-title">Thiết lập bầu cử</h2>
 	</div>
 </div>
 
 <div class="row">
 	<div class="col-xs-12">
 		<div class="input-group">
-			<table class="table table-striped" id="table">
-			  <thead>
-			    <tr>
-			      <th scope="col">Transaction Id</th>
-			      <th scope="col">Người bầu cử</th>
-			      <th scope="col">Ứng viên</th>
-			    </tr>
-			  </thead>
-			  <tbody id="tbody">
-			  </tbody>
-			</table>
+			<button type="button" id="create">Tạo block cho ứng viên</button>
+			<button type="button" onclick="window.location.href = '<%=request.getContextPath()%>'">Về trang chủ</button>
+		</div>
+	</div>
+</div>
+<br>
+<div class="row">
+	<div class="col-xs-12">
+		<div class="input-group" id="result">
+				
 		</div>
 	</div>
 </div>
 </div>
-</div>
 <script type="text/javascript">
-
 $(document).ready(function() {
-    $(function(){
-    	
-    	const ctx = "<%=request.getContextPath()%>";
-    	setInterval(getData, 3000);
-    	function getData(){
-    		let index=$('#table tr').length-1;
-    		$.ajax({
-        		url: ctx+"/"+'getData',
+    
+    $('#create').click(function(){
+    	var ctx = "<%=request.getContextPath()%>";
+        var input= $('#input').val();
+        $.ajax({
+    			url: ctx+"/setting",
     			type: 'POST',
     			processData: false,
-    			contentType: false
-            }).done(function(data) { 
-            	console.log(data);
-            	if(data.length>0){
-            		for(i=index; i<data.length; i++){
-            			var line = '<tr><th scope="row">'+data[i].transactionId+'</th>'+
-            			      '<td>'+data[i].sender+'</td>'+
-            			      '<td>'+data[i].reciepient+'</td>'+
-            			$('#tbody').append(line);
-            		}
-            	}
-            	else{
-            		$('#table').empty();
-            	}
-            	
-            });
-    	}
-    } );
+    			contentType: "application/json;charset=utf-8",
+    			success: function(res){
+    				if(res!=null){
+    					$("#result").empty();
+    	      			$("#result").append(res);
+    	      		}
+    			}
+    	});
+    })
 });
 
 </script>
