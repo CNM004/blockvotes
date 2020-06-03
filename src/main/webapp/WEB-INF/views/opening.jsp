@@ -58,18 +58,15 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active">
-					<a class="nav-link" href="#">Voting List <span class="sr-only">(current)</span></a>
+					<a class="nav-link" href="#">Opening<span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Results</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">History</a>
+					<a class="nav-link" href="history.jps">History</a>
 				</li>
 			</ul>
 			<form class="form-inline my-2 my-lg-0">
 				<div class="dropdown">
-					<a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+					<a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user text-white">
 						<img alt="image"
 							src="https://i.pinimg.com/originals/37/8c/4b/378c4ba6ce42d11d5b3023b5e63134f4.jpg"
 							class="rounded-circle mr-1" width="50" height="50">
@@ -92,97 +89,96 @@
 
 	<div class="container mt-5">
 		<div class="col-12 col-md-10 offset-md-1 col-lg-10 offset-lg-1">
-
-			<div class="card">
-				<div class="card-header">
-					<h4>Voting List</h4>
-				</div>
-				<div class="card-body p-0">
-					<div class="table-responsive">
-						<table class="table table-striped table-md">
-							<tr>
-								<th>#</th>
-								<th>Name</th>
-								<th>Start At</th>
-								<th>Status</th>
-								<th>Action</th>
-							</tr>
-							<tr>
-								<td>1</td>
-								<td> Blockchain E-Voting System 1</td>
-								<td>2020-02-09</td>
-								<td>
-									<div class="badge badge-secondary">Voted</div>
-								</td>
-								<td><a href="#" class="btn btn-primary">Detail</a></td>
-							</tr>
-							<tr>
-								<td>2</td>
-								<td>Blockchain E-Voting System 2</td>
-								<td>2020-02-09</td>
-								<td>
-									<div class="badge badge-warning">Pending</div>
-								</td>
-								<td><a href="#" class="btn btn-primary">Detail</a></td>
-							</tr>
-							<tr>
-								<td>3</td>
-								<td>Blockchain E-Voting System 3</td>
-								<td>2020-02-09</td>
-								<td>
-									<div class="badge badge-danger">Denied</div>
-								</td>
-								<td><a href="#" class="btn btn-primary">Detail</a></td>
-							</tr>
-							<tr>
-								<td>4</td>
-								<td>Blockchain E-Voting System 4</td>
-								<td>2020-02-09</td>
-								<td>
-									<div class="badge badge-success">Opening</div>
-								</td>
-								<td><a href="#" class="btn btn-primary">Detail</a></td>
-							</tr>
-							<tr>
-								<td>5</td>
-								<td>Blockchain E-Voting System 5</td>
-								<td>2020-02-09</td>
-								<td>
-									<div class="badge badge-success">Opening</div>
-								</td>
-								<td><a href="#" class="btn btn-primary">Detail</a></td>
-							</tr>
-						</table>
-					</div>
-				</div>
-				<div class="card-footer text-right">
-					<nav class="d-inline-block">
-						<ul class="pagination mb-0">
-							<li class="page-item disabled">
-								<a class="page-link" href="#" tabindex="-1"><i class="fas fa-chevron-left"></i></a>
-							</li>
-							<li class="page-item active"><a class="page-link" href="#">1 <span
-										class="sr-only">(current)</span></a>
-							</li>
-							<li class="page-item">
-								<a class="page-link" href="#">2</a>
-							</li>
-							<li class="page-item"><a class="page-link" href="#">3</a></li>
-							<li class="page-item">
-								<a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
-							</li>
-						</ul>
-					</nav>
-				</div>
+	
+		  <div class="card">
+			<div class="card-header">
+			  <h4>Opening</h4>
 			</div>
-
-			<footer class="footer mt-5">
-				<div class="container">
-					<span class="text-muted">Copyright &copy; Blockvotes</span>
-				</div>
-			</footer>
+			<div class="card-body p-0">
+			  <div class="table-responsive">
+				<table class="table table-striped table-md">
+				  <tr>
+					<th>#</th>
+					<th>Name</th>
+					<th>End in</th>
+					<th>Status</th>
+					<th>Action</th>
+				  </tr>
+				  <tr>
+					<td>1</td>
+					<td> Blockchain E-Voting System 1</td>
+					<td>05:30:30</td>
+					<td>
+					  <div class="badge badge-secondary">Voted</div>
+					</td>
+					<td><a href="#" class="btn btn-primary">Detail</a></td>
+				  </tr>
+				  <tr>
+					<td>2</td>
+					<td>Blockchain E-Voting System 2</td>
+					<td>10:40:10</td>
+					<td>
+					  <div class="badge badge-warning">Pending</div>
+					</td>
+					<td><a href="#" class="btn btn-primary">Detail</a></td>
+				  </tr>
+				  <tr>
+					<td>3</td>
+					<td>Blockchain E-Voting System 3</td>
+					<td>08:00:00</td>
+					<td>
+					  <div class="badge badge-danger">Denied</div>
+					</td>
+					<td><a href="#" class="btn btn-primary">Detail</a></td>
+				  </tr>
+				  <tr>
+					<td>4</td>
+					<td>Blockchain E-Voting System 4</td>
+					<td>20:20:20</td>
+					<td>
+					  <div class="badge badge-success">Opening</div>
+					</td>
+					<td><a href="#" class="btn btn-primary">Detail</a></td>
+				  </tr>
+				  <tr>
+					<td>5</td>
+					<td>Blockchain E-Voting System 5</td>
+					<td>00:50:04</td>
+					<td>
+					  <div class="badge badge-success">Opening</div>
+					</td>
+					<td><a href="#" class="btn btn-primary">Detail</a></td>
+				  </tr>
+				</table>
+			  </div>
+			</div>
+			<div class="card-footer text-right">
+			  <nav class="d-inline-block">
+				<ul class="pagination mb-0">
+				  <li class="page-item disabled">
+					<a class="page-link" href="#" tabindex="-1"><i class="fas fa-chevron-left"></i></a>
+				  </li>
+				  <li class="page-item active"><a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
+				  </li>
+				  <li class="page-item">
+					<a class="page-link" href="#">2</a>
+				  </li>
+				  <li class="page-item"><a class="page-link" href="#">3</a></li>
+				  <li class="page-item">
+					<a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
+				  </li>
+				</ul>
+			  </nav>
+			</div>
+		  </div>
+	
+		  <footer class="footer mt-5">
+			<div class="container">
+			  <span class="text-muted">Copyright &copy; Blockvotes</span>
+			</div>
+		  </footer>
 		</div>
-	</div>
+	  </div>
 </div>
 
 <script type="text/javascript">
