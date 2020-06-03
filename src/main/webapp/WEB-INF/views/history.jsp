@@ -44,7 +44,7 @@
 
 <div id="app">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand" href="#">
+		<a class="navbar-brand" href="opening.html">
 			<img src="https://image.flaticon.com/icons/svg/893/893071.svg" width="30" height="30"
 				class="d-inline-block align-top" alt="">
 			Blockvotes
@@ -61,7 +61,7 @@
 					<a class="nav-link" href="opening.html">Opening</a>
 				</li>
 				<li class="nav-item active">
-					<a class="nav-link" href="#">History<span class="sr-only">(current)</span></a>
+					<a class="nav-link" href="history.html">History<span class="sr-only">(current)</span></a>
 				</li>
 			</ul>
 			<form class="form-inline my-2 my-lg-0">
@@ -92,7 +92,7 @@
 
 			<div class="card">
 				<div class="card-header">
-					<h4>History</h4>
+					<h4>History<span class="badge badge-secondary ml-2">5</span></h4>
 				</div>
 				<div class="card-body p-0">
 					<div class="table-responsive">
@@ -114,7 +114,7 @@
 								</td>
 								<td class="row">
 									<img alt="image" src="https://image.flaticon.com/icons/svg/2919/2919600.svg"
-										class="rounded-circle" width="35" data-toggle="tooltip" title="Hoàng Long">
+										class="rounded-circle" width="35" data-toggle="tooltip" title="Gorden Ramsay">
 									<a class="nav-link" href="#">Gorden Ramsay</a>
 								</td>
 								<td><a href="#" class="btn btn-primary">Detail</a></td>
@@ -128,7 +128,7 @@
 								</td>
 								<td class="row">
 									<img alt="image" src="https://image.flaticon.com/icons/svg/2919/2919600.svg"
-										class="rounded-circle" width="35" data-toggle="tooltip" title="Hoàng Long">
+										class="rounded-circle" width="35" data-toggle="tooltip" title="Gorden Ramsay">
 									<a class="nav-link" href="#">Gorden Ramsay</a>
 								</td>
 								<td><a href="#" class="btn btn-primary">Detail</a></td>
@@ -142,7 +142,7 @@
 								</td>
 								<td class="row">
 									<img alt="image" src="https://image.flaticon.com/icons/svg/2919/2919600.svg"
-										class="rounded-circle" width="35" data-toggle="tooltip" title="Hoàng Long">
+										class="rounded-circle" width="35" data-toggle="tooltip" title="Gorden Ramsay">
 									<a class="nav-link" href="#">Gorden Ramsay</a>
 								</td>
 								<td><a href="#" class="btn btn-primary">Detail</a></td>
@@ -156,7 +156,7 @@
 								</td>
 								<td class="row">
 									<img alt="image" src="https://image.flaticon.com/icons/svg/2919/2919600.svg"
-										class="rounded-circle" width="35" data-toggle="tooltip" title="Hoàng Long">
+										class="rounded-circle" width="35" data-toggle="tooltip" title="Gorden Ramsay">
 									<a class="nav-link" href="#">Gorden Ramsay</a>
 								</td>
 								<td><a href="#" class="btn btn-primary">Detail</a></td>
@@ -170,7 +170,7 @@
 								</td>
 								<td class="row">
 									<img alt="image" src="https://image.flaticon.com/icons/svg/2919/2919600.svg"
-										class="rounded-circle" width="35" data-toggle="tooltip" title="Hoàng Long">
+										class="rounded-circle" width="35" data-toggle="tooltip" title="Gorden Ramsay">
 									<a class="nav-link" href="#">Gorden Ramsay</a>
 								</td>
 								<td><a href="#" class="btn btn-primary">Detail</a></td>
