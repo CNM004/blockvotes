@@ -44,168 +44,161 @@
 
 <div id="app">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand" href="opening.html">
-			<img src="https://image.flaticon.com/icons/svg/893/893071.svg" width="30" height="30"
-				class="d-inline-block align-top" alt="">
-			Blockvotes
+		<a class="navbar-brand" href="opening.jsp">
+		  <img src="https://image.flaticon.com/icons/svg/893/893071.svg" width="30" height="30"
+			class="d-inline-block align-top" alt="">
+		  Blockvotes
 		</a>
-
+	
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
+		  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
 		</button>
-
+	
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item">
-					<a class="nav-link" href="opening.html">Opening</a>
-				</li>
-				<li class="nav-item active">
-					<a class="nav-link" href="history.html">History<span class="sr-only">(current)</span></a>
-				</li>
-			</ul>
-			<form class="form-inline my-2 my-lg-0">
-				<div class="dropdown">
-					<a href="#" data-toggle="dropdown"
-						class="nav-link dropdown-toggle nav-link-lg nav-link-user text-white">
-						<img alt="image"
-							src="https://i.pinimg.com/originals/37/8c/4b/378c4ba6ce42d11d5b3023b5e63134f4.jpg"
-							class="rounded-circle mr-1" width="50" height="50">
-						<div class="d-sm-none d-lg-inline-block">Hi, BlockVotes!</div>
-					</a>
-					<div class="dropdown-menu dropdown-menu-right">
-						<a href="features-profile.html" class="dropdown-item has-icon">
-							<i class="far fa-user"></i> Profile
-						</a>
-						<div class="dropdown-divider"></div>
-						<a href="#" class="dropdown-item has-icon text-danger">
-							<i class="fas fa-sign-out-alt"></i> Logout
-						</a>
-					</div>
-				</div>
-			</form>
-		</div>
-	</nav>
-
-	<div class="container mt-5">
-		<div class="col-12 col-md-10 offset-md-1 col-lg-10 offset-lg-1">
-
-			<div class="card">
-				<div class="card-header">
-					<h4>History<span class="badge badge-secondary ml-2">5</span></h4>
-				</div>
-				<div class="card-body p-0">
-					<div class="table-responsive">
-						<table class="table table-striped table-md">
-							<tr>
-								<th>#</th>
-								<th>Name</th>
-								<th>End at</th>
-								<th>Status</th>
-								<th>Candidate</th>
-								<th>Action</th>
-							</tr>
-							<tr>
-								<td>1</td>
-								<td> Blockchain E-Voting System 1</td>
-								<td>June 03 2020</td>
-								<td>
-									<div class="badge badge-success">Success</div>
-								</td>
-								<td class="row">
-									<img alt="image" src="https://image.flaticon.com/icons/svg/2919/2919600.svg"
-										class="rounded-circle" width="35" data-toggle="tooltip" title="Gorden Ramsay">
-									<a class="nav-link" href="#">Gorden Ramsay</a>
-								</td>
-								<td><a href="#" class="btn btn-primary">Detail</a></td>
-							</tr>
-							<tr>
-								<td>2</td>
-								<td>Blockchain E-Voting System 2</td>
-								<td>June 03 2020</td>
-								<td>
-									<div class="badge badge-success">Success</div>
-								</td>
-								<td class="row">
-									<img alt="image" src="https://image.flaticon.com/icons/svg/2919/2919600.svg"
-										class="rounded-circle" width="35" data-toggle="tooltip" title="Gorden Ramsay">
-									<a class="nav-link" href="#">Gorden Ramsay</a>
-								</td>
-								<td><a href="#" class="btn btn-primary">Detail</a></td>
-							</tr>
-							<tr>
-								<td>3</td>
-								<td>Blockchain E-Voting System 3</td>
-								<td>June 03 2020</td>
-								<td>
-									<div class="badge badge-success">Success</div>
-								</td>
-								<td class="row">
-									<img alt="image" src="https://image.flaticon.com/icons/svg/2919/2919600.svg"
-										class="rounded-circle" width="35" data-toggle="tooltip" title="Gorden Ramsay">
-									<a class="nav-link" href="#">Gorden Ramsay</a>
-								</td>
-								<td><a href="#" class="btn btn-primary">Detail</a></td>
-							</tr>
-							<tr>
-								<td>4</td>
-								<td>Blockchain E-Voting System 4</td>
-								<td>June 03 2020</td>
-								<td>
-									<div class="badge badge-danger">Denied</div>
-								</td>
-								<td class="row">
-									<img alt="image" src="https://image.flaticon.com/icons/svg/2919/2919600.svg"
-										class="rounded-circle" width="35" data-toggle="tooltip" title="Gorden Ramsay">
-									<a class="nav-link" href="#">Gorden Ramsay</a>
-								</td>
-								<td><a href="#" class="btn btn-primary">Detail</a></td>
-							</tr>
-							<tr>
-								<td>5</td>
-								<td>Blockchain E-Voting System 5</td>
-								<td>June 03 2020</td>
-								<td>
-									<div class="badge badge-success">Success</div>
-								</td>
-								<td class="row">
-									<img alt="image" src="https://image.flaticon.com/icons/svg/2919/2919600.svg"
-										class="rounded-circle" width="35" data-toggle="tooltip" title="Gorden Ramsay">
-									<a class="nav-link" href="#">Gorden Ramsay</a>
-								</td>
-								<td><a href="#" class="btn btn-primary">Detail</a></td>
-							</tr>
-						</table>
-					</div>
-				</div>
-				<div class="card-footer text-right">
-					<nav class="d-inline-block">
-						<ul class="pagination mb-0">
-							<li class="page-item disabled">
-								<a class="page-link" href="#" tabindex="-1"><i class="fas fa-chevron-left"></i></a>
-							</li>
-							<li class="page-item active"><a class="page-link" href="#">1 <span
-										class="sr-only">(current)</span></a>
-							</li>
-							<li class="page-item">
-								<a class="page-link" href="#">2</a>
-							</li>
-							<li class="page-item"><a class="page-link" href="#">3</a></li>
-							<li class="page-item">
-								<a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
-							</li>
-						</ul>
-					</nav>
-				</div>
+		  <ul class="navbar-nav mr-auto">
+			<li class="nav-item">
+			  <a class="nav-link" href="opening.jps">Opening</a>
+			</li>
+			<li class="nav-item active">
+			  <a class="nav-link" href="history.jsp">History<span class="sr-only">(current)</span></a>
+			</li>
+		  </ul>
+		  <form class="form-inline my-2 my-lg-0">
+			<div class="dropdown">
+			  <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user text-white">
+				<img alt="image" src="https://i.pinimg.com/originals/37/8c/4b/378c4ba6ce42d11d5b3023b5e63134f4.jpg"
+				  class="rounded-circle mr-1" width="50" height="50">
+				<div class="d-sm-none d-lg-inline-block">Hi, BlockVotes!</div>
+			  </a>
+			  <div class="dropdown-menu dropdown-menu-right">
+				<a href="profile.jsp" class="dropdown-item has-icon">
+				  <i class="far fa-user"></i> Profile
+				</a>
+				<div class="dropdown-divider"></div>
+				<a href="#" class="dropdown-item has-icon text-danger">
+				  <i class="fas fa-sign-out-alt"></i> Logout
+				</a>
+			  </div>
 			</div>
-
-			<footer class="footer mt-5">
-				<div class="container">
-					<span class="text-muted">Copyright &copy; Blockvotes</span>
-				</div>
-			</footer>
+		  </form>
 		</div>
-	</div>
+	  </nav>
+	
+	
+	  <div class="container mt-5">
+		<div class="col-12 col-md-10 offset-md-1 col-lg-10 offset-lg-1">
+	
+		  <div class="card">
+			<div class="card-header">
+			  <h4>History<span class="badge badge-secondary ml-2">5</span></h4>
+			</div>
+			<div class="card-body p-0">
+			  <div class="table-responsive">
+				<table class="table table-striped table-md">
+				  <tr>
+					<th>#</th>
+					<th>Name</th>
+					<th>End at</th>
+					<th>Status</th>
+					<th>Candidate Won</th>
+					<th>Action</th>
+				  </tr>
+				  <tr>
+					<td>1</td>
+					<td> Blockchain E-Voting System 1</td>
+					<td>June 03 2020</td>
+					<td>
+					  <div class="badge badge-success">Success</div>
+					</td>
+					<td class="row">
+					  <img alt="image" src="https://image.flaticon.com/icons/svg/2919/2919600.svg" class="rounded-circle" width="35" data-toggle="tooltip" title="Gorden Ramsay">
+					  <a class="nav-link" href="#">Gorden Ramsay</a>
+					</td>
+					<td><a href="vote-result.jsp" class="btn btn-primary">Detail</a></td>
+				  </tr>
+				  <tr>
+					<td>2</td>
+					<td>Blockchain E-Voting System 2</td>
+					<td>June 03 2020</td>
+					<td>
+					  <div class="badge badge-success">Success</div>
+					</td>
+					<td class="row">
+					  <img alt="image" src="https://image.flaticon.com/icons/svg/2919/2919600.svg" class="rounded-circle" width="35" data-toggle="tooltip" title="Gorden Ramsay">
+					  <a class="nav-link" href="#">Gorden Ramsay</a>
+					</td>
+					<td><a href="vote-result.jsp" class="btn btn-primary">Detail</a></td>
+				  </tr>
+				  <tr>
+					<td>3</td>
+					<td>Blockchain E-Voting System 3</td>
+					<td>June 03 2020</td>
+					<td>
+					  <div class="badge badge-success">Success</div>
+					</td>
+					<td class="row">
+					  <img alt="image" src="https://image.flaticon.com/icons/svg/2919/2919600.svg" class="rounded-circle" width="35" data-toggle="tooltip" title="Gorden Ramsay">
+					  <a class="nav-link" href="#">Gorden Ramsay</a>
+					</td>
+					<td><a href="vote-result.jsp" class="btn btn-primary">Detail</a></td>
+				  </tr>
+				  <tr>
+					<td>4</td>
+					<td>Blockchain E-Voting System 4</td>
+					<td>June 03 2020</td>
+					<td>
+					  <div class="badge badge-danger">Denied</div>
+					</td>
+					<td class="row">
+					  <img alt="image" src="https://image.flaticon.com/icons/svg/2919/2919600.svg" class="rounded-circle" width="35" data-toggle="tooltip" title="Gorden Ramsay">
+					  <a class="nav-link" href="#">Gorden Ramsay</a>
+					</td>
+					<td><a href="vote-result.jsp" class="btn btn-primary">Detail</a></td>
+				  </tr>
+				  <tr>
+					<td>5</td>
+					<td>Blockchain E-Voting System 5</td>
+					<td>June 03 2020</td>
+					<td>
+					  <div class="badge badge-success">Success</div>
+					</td>
+					<td class="row">
+					  <img alt="image" src="https://image.flaticon.com/icons/svg/2919/2919600.svg" class="rounded-circle" width="35" data-toggle="tooltip" title="Gorden Ramsay">
+					  <a class="nav-link" href="#">Gorden Ramsay</a>
+					</td>
+					<td><a href="vote-result.jsp" class="btn btn-primary">Detail</a></td>
+				  </tr>
+				</table>
+			  </div>
+			</div>
+			<div class="card-footer text-right">
+			  <nav class="d-inline-block">
+				<ul class="pagination mb-0">
+				  <li class="page-item disabled">
+					<a class="page-link" href="#" tabindex="-1"><i class="fas fa-chevron-left"></i></a>
+				  </li>
+				  <li class="page-item active"><a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
+				  </li>
+				  <li class="page-item">
+					<a class="page-link" href="#">2</a>
+				  </li>
+				  <li class="page-item"><a class="page-link" href="#">3</a></li>
+				  <li class="page-item">
+					<a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
+				  </li>
+				</ul>
+			  </nav>
+			</div>
+		  </div>
+	
+		  <footer class="footer mt-5">
+			<div class="container">
+			  <span class="text-muted">Copyright &copy; Blockvotes</span>
+			</div>
+		  </footer>
+		</div>
+	  </div>
 </div>
 
 <script type="text/javascript">

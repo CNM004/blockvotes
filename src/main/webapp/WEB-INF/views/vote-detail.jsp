@@ -45,7 +45,7 @@
 <div id="app">
 	<!-- Header -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand" href="#">
+		<a class="navbar-brand" href="opening.jsp">
 			<img src="https://image.flaticon.com/icons/svg/893/893071.svg" width="30" height="30"
 				class="d-inline-block align-top" alt="">
 			Blockvotes
@@ -59,10 +59,10 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active">
-					<a class="nav-link" href="opening.html">Opening<span class="sr-only">(current)</span></a>
+					<a class="nav-link" href="opening.jsp">Opening<span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="history.html">History</a>
+					<a class="nav-link" href="history.jsp">History</a>
 				</li>
 			</ul>
 			<form class="form-inline my-2 my-lg-0">
@@ -75,7 +75,7 @@
 						<div class="d-sm-none d-lg-inline-block">Hi, BlockVotes!</div>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right">
-						<a href="features-profile.html" class="dropdown-item has-icon">
+						<a href="profile.jsp" class="dropdown-item has-icon">
 							<i class="far fa-user"></i> Profile
 						</a>
 						<div class="dropdown-divider"></div>
@@ -93,7 +93,7 @@
 
 			<nav aria-label="breadcrumb mt-0">
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="opening.html">Opening</a></li>
+					<li class="breadcrumb-item"><a href="opening.jsp">Opening</a></li>
 					<li class="breadcrumb-item active" aria-current="page">Blockchain E-Voting System 1</li>
 				</ol>
 			</nav>
@@ -101,7 +101,7 @@
 			<section class="section">
 				<div class="row section-header">
 					<div class="section-header-back">
-						<a href="opening.html" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
+						<a href="opening.jsp" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
 					</div>
 					<h3>Blockchain E-Voting System 1
 						<span class="badge badge-success mt-2">Opening</span>
@@ -306,7 +306,7 @@
 						<h3>Thank you!</h3>
 					</div>
 					<div class="row justify-content-center">
-						<a href="vote-result.html" class="btn btn-success">Detail</a>
+						<a href="vote-result.jsp" class="btn btn-success">Detail</a>
 					</div>
 				</div>
 			</div>

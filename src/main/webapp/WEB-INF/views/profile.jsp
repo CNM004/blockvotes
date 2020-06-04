@@ -43,6 +43,7 @@
 </head>
 
 <div id="app">
+	<!-- Header -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<a class="navbar-brand" href="opening.jsp">
 			<img src="https://image.flaticon.com/icons/svg/893/893071.svg" width="30" height="30"
@@ -57,7 +58,7 @@
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active">
+				<li class="nav-item">
 					<a class="nav-link" href="opening.jsp">Opening<span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item">
@@ -91,86 +92,75 @@
 	<div class="container mt-5">
 		<div class="col-12 col-md-10 offset-md-1 col-lg-10 offset-lg-1">
 
-			<div class="card">
+			<div class="card card-primary">
 				<div class="card-header">
-					<h4>Opening<span class="badge badge-secondary ml-2">5</span></h4>
+					<h4>Edit Profile</h4>
 				</div>
-				<div class="card-body p-0">
-					<div class="table-responsive">
-						<table class="table table-striped table-md">
-							<tr>
-								<th>#</th>
-								<th>Name</th>
-								<th>End in</th>
-								<th>Status</th>
-								<th>Action</th>
-							</tr>
-							<tr>
-								<td>1</td>
-								<td> Blockchain E-Voting System 1</td>
-								<td>05:30:30</td>
-								<td>
-									<div class="badge badge-secondary">Voted</div>
-								</td>
-								<td><a href="vote-detail.jsp" class="btn btn-primary">Detail</a></td>
-							</tr>
-							<tr>
-								<td>2</td>
-								<td>Blockchain E-Voting System 2</td>
-								<td>10:40:10</td>
-								<td>
-									<div class="badge badge-warning">Pending</div>
-								</td>
-								<td><a href="vote-detail.jsp" class="btn btn-primary">Detail</a></td>
-							</tr>
-							<tr>
-								<td>3</td>
-								<td>Blockchain E-Voting System 3</td>
-								<td>08:00:00</td>
-								<td>
-									<div class="badge badge-danger">Denied</div>
-								</td>
-								<td><a href="vote-detail.jsp" class="btn btn-primary">Detail</a></td>
-							</tr>
-							<tr>
-								<td>4</td>
-								<td>Blockchain E-Voting System 4</td>
-								<td>20:20:20</td>
-								<td>
-									<div class="badge badge-success">Opening</div>
-								</td>
-								<td><a href="vote-detail.jsp" class="btn btn-primary">Detail</a></td>
-							</tr>
-							<tr>
-								<td>5</td>
-								<td>Blockchain E-Voting System 5</td>
-								<td>00:50:04</td>
-								<td>
-									<div class="badge badge-success">Opening</div>
-								</td>
-								<td><a href="vote-detail.jsp" class="btn btn-primary">Detail</a></td>
-							</tr>
-						</table>
-					</div>
+
+				<div class="card-body">
+					<form method="POST">
+						<div class="row">
+							<div class="form-group col-6">
+								<label for="frist_name">First Name</label>
+								<input id="frist_name" type="text" class="form-control" name="frist_name" autofocus
+									placeholder="Block">
+							</div>
+							<div class="form-group col-6">
+								<label for="last_name">Last Name</label>
+								<input id="last_name" type="text" class="form-control" name="last_name"
+									placeholder="Votes">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="email">Email</label>
+							<input id="email" type="email" class="form-control" name="email"
+								placeholder="blockvotes@cnm.com">
+							<div class="invalid-feedback">
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="form-group col-6">
+								<label for="last_name">Identity Card Number</label>
+								<input id="last_name" type="number" class="form-control" name="last_name"
+									placeholder="123456789" readonly>
+							</div>
+							<div class="form-group col-2">
+								<label for="inputZip">Day of birth</label>
+								<input id="inputState" type="number" class="form-control" placeholder="01" readonly>
+							</div>
+							<div class="form-group col-2">
+								<label for="inputZip">Month</label>
+								<input id="inputState" type="number" class="form-control" placeholder="01" readonly>
+							</div>
+							<div class="form-group col-2">
+								<label for="inputZip">Year</label>
+								<input id="inputState" type="number" class="form-control" placeholder="1998" readonly>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="form-group col-12">
+								<label>Country</label>
+								<select class="form-control selectric">
+									<option>Vietnam</option>
+									<option>United States</option>
+									<option>United Kingdom</option>
+									<option>Malaysia</option>
+									<option>Thailand</option>
+								</select>
+							</div>
+						</div>
+
+						<button type="button" class="btn btn-link" data-toggle="modal"
+							data-target="#changePasswordModal">
+							Change password
+						</button>
+					</form>
 				</div>
 				<div class="card-footer text-right">
-					<nav class="d-inline-block">
-						<ul class="pagination mb-0">
-							<li class="page-item disabled">
-								<a class="page-link" href="#" tabindex="-1"><i class="fas fa-chevron-left"></i></a>
-							</li>
-							<li class="page-item active"><a class="page-link" href="#">1 <span
-										class="sr-only">(current)</span></a>
-							</li>
-							<li class="page-item">
-								<a class="page-link" href="#">2</a>
-							</li>
-							<li class="page-item"><a class="page-link" href="#">3</a></li>
-							<li class="page-item">
-								<a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
-							</li>
-						</ul>
-					</nav>
+					<button class="btn btn-primary">Save Changes</button>
 				</div>
 			</div>
 
@@ -179,6 +169,62 @@
 					<span class="text-muted">Copyright &copy; Blockvotes</span>
 				</div>
 			</footer>
+		</div>
+	</div>
+
+	<!-- Change password Modal -->
+	<div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Change password</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-group">
+							<label for="old-password" class="col-form-label">Old password</label>
+							<input type="password" class="form-control" id="old-password">
+						</div>
+						<div class="form-group">
+							<label for="new-password" class="col-form-label">New password</label>
+							<input type="password" class="form-control" id="new-password">
+						</div>
+						<div class="form-group">
+							<label for="confirm-password" class="col-form-label">Confirm new password</label>
+							<input type="password" class="form-control" id="confirm-password">
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#successModal">Change
+						password</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Success Modal -->
+	<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-body">
+					<img alt="image" src="https://image.flaticon.com/icons/svg/845/845646.svg"
+						class="rounded-circle card-img-top mb-3" width="100" height="100" data-toggle="tooltip"
+						title="Maroon 5">
+					<div class="row justify-content-center">
+						<h3>Change password successfully</h3>
+					</div>
+					<div class="row justify-content-center">
+						<button type="button" class="btn btn-success" data-dismiss="modal">OK</button>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
