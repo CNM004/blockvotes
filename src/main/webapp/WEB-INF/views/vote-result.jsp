@@ -46,7 +46,7 @@
 
 <div id="app">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand" href="opening.html">
+		<a class="navbar-brand" href="opening.jsp">
 			<img src="https://image.flaticon.com/icons/svg/893/893071.svg" width="30" height="30"
 				class="d-inline-block align-top" alt="">
 			Blockvotes
@@ -60,10 +60,10 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active">
-					<a class="nav-link" href="opening.html">Opening<span class="sr-only">(current)</span></a>
+					<a class="nav-link" href="opening.jsp">Opening<span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="history.html">History</a>
+					<a class="nav-link" href="history.jsp">History</a>
 				</li>
 			</ul>
 			<form class="form-inline my-2 my-lg-0">
@@ -76,7 +76,7 @@
 						<div class="d-sm-none d-lg-inline-block">Hi, BlockVotes!</div>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right">
-						<a href="features-profile.html" class="dropdown-item has-icon">
+						<a href="profile.jsp" class="dropdown-item has-icon">
 							<i class="far fa-user"></i> Profile
 						</a>
 						<div class="dropdown-divider"></div>
@@ -92,10 +92,11 @@
 	<div class="container mt-5">
 		<div class="col-12 col-md-10 offset-md-1 col-lg-10 offset-lg-1">
 
+			<!-- Breadcrumb-->
 			<nav aria-label="breadcrumb mt-0">
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="opening.html">Opening</a></li>
-					<li class="breadcrumb-item"><a href="vote-detail.html">Blockchain E-Voting System 1</a></li>
+					<li class="breadcrumb-item"><a href="opening.jsp">Opening</a></li>
+					<li class="breadcrumb-item"><a href="vote-detail.jsp">Blockchain E-Voting System 1</a></li>
 					<li class="breadcrumb-item active" aria-current="page">Result</li>
 				</ol>
 			</nav>
@@ -103,7 +104,7 @@
 			<section class="section">
 				<div class="row section-header">
 					<div class="section-header-back">
-						<a href="vote-detail.html" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
+						<a href="vote-detail.jsp" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
 					</div>
 					<h3>Blockchain E-Voting System 1</h3>
 				</div>
@@ -118,13 +119,110 @@
 					mattis iudicium purus sit amet fermentum.</p>
 			</section>
 
-
+			<!-- Chart -->
 			<div class="card">
 				<div class="card-header">
 					<h4>Pie Chart</h4>
 				</div>
 				<div class="card-body">
-					<canvas id="myChart"></canvas>
+					<canvas id="pieChart"></canvas>
+				</div>
+			</div>
+
+			<div class="card">
+				<div class="card-header">
+					<h4>Bar Chart</h4>
+				</div>
+				<div class="card-body">
+					<canvas id="barChart"></canvas>
+				</div>
+			</div>
+
+			<!--- Vote table -->
+			<div class="card mt-5">
+				<div class="card-header">
+					<h4>Voting History</h4>
+				</div>
+				<div class="card-body p-0">
+					<div class="table-responsive">
+						<table class="table table-striped table-md">
+							<tr>
+								<th>#</th>
+								<th>Public Key</th>
+								<th>Time</th>
+								<th>Candidate</th>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>abcngjurojvowodoWQR2Vgqe2$dvwefas</td>
+								<td>10:05 AM 4/6/2020</td>
+								<td class="row">
+									<img alt="image" src="https://image.flaticon.com/icons/svg/2919/2919600.svg"
+										class="rounded-circle" width="35" data-toggle="tooltip" title="Gorden Ramsay">
+									<a class="nav-link" href="#">Gorden Ramsay</a>
+								</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>vqq5nio#$brSvokowqxcadsavry5GBSDV</td>
+								<td>10:05 AM 4/6/2020</td>
+								<td class="row">
+									<img alt="image" src="https://image.flaticon.com/icons/svg/2919/2919600.svg"
+										class="rounded-circle" width="35" data-toggle="tooltip" title="Gorden Ramsay">
+									<a class="nav-link" href="#">Gorden Ramsay</a>
+								</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>vqqasdv#$brSvokowqxcadsavry5GBSDV</td>
+								<td>10:05 AM 4/6/2020</td>
+								<td class="row">
+									<img alt="image" src="https://image.flaticon.com/icons/svg/2919/2919600.svg"
+										class="rounded-circle" width="35" data-toggle="tooltip" title="Gorden Ramsay">
+									<a class="nav-link" href="#">Gorden Ramsay</a>
+								</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>vqq5nio#$brSvokowqxcadsavry5GBSDV</td>
+								<td>10:05 AM 4/6/2020</td>
+								<td class="row">
+									<img alt="image" src="https://image.flaticon.com/icons/svg/2919/2919600.svg"
+										class="rounded-circle" width="35" data-toggle="tooltip" title="Gorden Ramsay">
+									<a class="nav-link" href="#">Gorden Ramsay</a>
+								</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>abcngjurojvowodoWQR2Vgqe2$dvwefas</td>
+								<td>10:05 AM 4/6/2020</td>
+								<td class="row">
+									<img alt="image" src="https://image.flaticon.com/icons/svg/2919/2919600.svg"
+										class="rounded-circle" width="35" data-toggle="tooltip" title="Gorden Ramsay">
+									<a class="nav-link" href="#">Gorden Ramsay</a>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<div class="card-footer text-right">
+					<nav class="d-inline-block">
+						<ul class="pagination mb-0">
+							<li class="page-item disabled">
+								<a class="page-link" href="#" tabindex="-1"><i class="fas fa-chevron-left"></i></a>
+							</li>
+							<li class="page-item active"><a class="page-link" href="#">1 <span
+										class="sr-only">(current)</span></a>
+							</li>
+							<li class="page-item">
+								<a class="page-link" href="#">2</a>
+							</li>
+							<li class="page-item"><a class="page-link" href="#">3</a></li>
+							<li class="page-item">
+								<a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a>
+							</li>
+						</ul>
+					</nav>
 				</div>
 			</div>
 
@@ -138,9 +236,9 @@
 </div>
 
 <script>
-	var ctx = document.getElementById("myChart").getContext('2d');
-	var randomScalingFactor = function () {
-		return Math.round(Math.random() * 100);
+	var ctx = document.getElementById("pieChart").getContext('2d');
+	var randomScalingFactor = function (number) {
+		return Math.round(number * 1);
 	};
 	var myChart = new Chart(ctx, {
 		type: 'pie',
@@ -148,25 +246,59 @@
 			labels: ["Candidate 1", "Candidate 2", "Candidate 3", "Candidate 4", "Candidate 5", "Candidate 6"],
 			datasets: [{
 				label: '# of Votes',
-				data: [
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor(),
-				],
+				data: [20, 49, 10, 5, 15, 25],
 				backgroundColor: [
-					'rgba(213, 0, 0, 1)',
-					'rgba(41, 98, 255, 1)',
-					'rgba(255, 234, 0, 1)',
-					'rgba(56, 142, 60, 1)',
-					'rgba(170, 0, 255, 1)',
-					'rgba(255, 109, 0, 1)'
+					'rgba(255,99,132,1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)'
 				],
 			}]
 		},
 		options: {
 			responsive: true
+		}
+	});
+</script>
+
+<script>
+	var ctx = document.getElementById("barChart").getContext('2d');
+	var myChart = new Chart(ctx, {
+		type: 'bar',
+		data: {
+			labels: ["Candidate 1", "Candidate 2", "Candidate 3", "Candidate 4", "Candidate 5", "Candidate 6"],
+			datasets: [{
+				label: '# of Votes',
+				data: [20, 49, 10, 5, 15, 25],
+				backgroundColor: [
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 159, 64, 0.2)'
+				],
+				borderColor: [
+					'rgba(255,99,132,1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)'
+				],
+				borderWidth: 1
+			}]
+		},
+		options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero: true
+					}
+				}]
+			}
 		}
 	});
 </script>
