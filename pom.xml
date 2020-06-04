@@ -43,6 +43,23 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 		
+		<!-- Spring Security -->
+	    <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-web</artifactId>
+		    <version>5.3.2.RELEASE</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-config</artifactId>
+		    <version>5.3.2.RELEASE</version>
+		</dependency>
+
+			
+		
 		<!-- jackson -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
@@ -152,7 +169,21 @@
 		    <artifactId>spring-context-support</artifactId>
 		    <version>5.2.6.RELEASE</version>
 		</dependency>
-	
+	<!-- Spring JDBC -->
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-jdbc</artifactId>
+    <version>5.2.6.RELEASE</version>
+</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-tx -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-tx</artifactId>
+    <version>5.2.6.RELEASE</version>
+</dependency>
+
 						
 	</dependencies>
 

@@ -20,6 +20,8 @@
       <property name="annotatedClasses">
           <list>
               <value>com.dxc.entity.User</value>
+              <value>com.dxc.entity.Role</value>
+              <value>com.dxc.entity.UserRole</value>
           </list>
       </property>
  

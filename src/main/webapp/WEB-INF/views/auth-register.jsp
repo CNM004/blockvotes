@@ -31,10 +31,6 @@
 
 	<script src="<c:url value='/asset/js/jquery.min.js' />" type="text/javascript"></script>
 	<script src="https://www.google.com/recaptcha/api.js?render=${siteKey}"></script>
-
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-		crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
 		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
 		crossorigin="anonymous"></script>
@@ -54,105 +50,68 @@
 				</div>
 
 				<div class="card-body">
-					<form method="POST">
-						<div class="row">
-							<div class="form-group col-6">
-								<label for="frist_name">First Name</label>
-								<input id="frist_name" type="text" class="form-control" name="frist_name" autofocus>
-							</div>
-							<div class="form-group col-6">
-								<label for="last_name">Last Name</label>
-								<input id="last_name" type="text" class="form-control" name="last_name">
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="email">Email</label>
-							<input id="email" type="email" class="form-control" name="email">
-							<div class="invalid-feedback">
-							</div>
-						</div>
-
-						<div class="row">
-							<div class="form-group col-6">
-								<label for="last_name">Identity Card Number</label>
-								<input id="last_name" type="number" class="form-control" name="last_name">
-							</div>
-							<div class="form-group col-2">
-								<label for="inputZip">Day of birth</label>
-								<select id="inputState" class="form-control">
-									<option selected>01</option>
-									<option>02</option>
-									<option>03</option>
-									<option>04</option>
-									<option>05</option>
-								</select>
-							</div>
-							<div class="form-group col-2">
-								<label for="inputZip">Month</label>
-								<select id="inputState" class="form-control">
-									<option selected>01</option>
-									<option>02</option>
-									<option>03</option>
-									<option>04</option>
-									<option>05</option>
-								</select>
-							</div>
-							<div class="form-group col-2">
-								<label for="inputZip">Year</label>
-								<select id="inputState" class="form-control">
-									<option selected>2010</option>
-									<option>2009</option>
-									<option>2008</option>
-									<option>2007</option>
-									<option>2006</option>
-								</select>
-							</div>
-						</div>
-
-						<div class="row">
-							<div class="form-group col-6">
-								<label for="password" class="d-block">Password</label>
-								<input id="password" type="password" class="form-control pwstrength"
-									data-indicator="pwindicator" name="password">
-								<div id="pwindicator" class="pwindicator">
-									<div class="bar"></div>
-									<div class="label"></div>
+					<form:form method="POST" action="register" modelAttribute="user">
+								<div class="row">
+									<div class="form-group col-6">
+										<label for="fullname">Full Name</label> <input id="fullname"
+											type="text" class="form-control" name="fullname" autofocus>
+									</div>
+									<div class="form-group col-6">
+										<label for="identity">Identity card number</label> <input
+											id="identity" type="text" class="form-control"
+											name="identity">
+									</div>
 								</div>
-							</div>
-							<div class="form-group col-6">
-								<label for="password2" class="d-block">Password Confirmation</label>
-								<input id="password2" type="password" class="form-control" name="password-confirm">
-							</div>
-						</div>
 
-						<div class="row">
-							<div class="form-group col-12">
-								<label>Country</label>
-								<select class="form-control selectric">
-									<option>Vietnam</option>
-									<option>United States</option>
-									<option>United Kingdom</option>
-									<option>Malaysia</option>
-									<option>Thailand</option>
-								</select>
-							</div>
-						</div>
+								<div class="form-group">
+									<label for="email">Email</label> <input id="email" type="email"
+										class="form-control" name="email">
+									<div class="invalid-feedback"></div>
+								</div>
 
-						<div class="form-group">
-							<div class="custom-control custom-checkbox">
-								<input type="checkbox" name="agree" class="custom-control-input" id="agree">
-								<label class="custom-control-label" for="agree">I agree with the terms and
-									conditions</label>
-							</div>
-						</div>
+								<div class="row">
+									<div class="form-group col-6">
+										<label for="password" class="d-block">Password</label> <input
+											id="password" type="password" class="form-control pwstrength"
+											data-indicator="pwindicator" name="password">
+										<div id="pwindicator" class="pwindicator">
+											<div class="bar"></div>
+											<div class="label"></div>
+										</div>
+									</div>
+									<div class="form-group col-6">
+										<label for="password2" class="d-block">Password
+											Confirmation</label> <input id="password2" type="password"
+											class="form-control">
+									</div>
+								</div>
 
-						<div class="form-group">
-							<button type="submit" class="btn btn-primary btn-lg btn-block">
-								Register
-							</button>
-						</div>
-					</form>
+								<%-- <div class="row">
+									<div class="form-group col-12">
+										<label>Country</label>
+										<select class="form-control selectric">
+											<option>Vietnam</option>
+											<option>United States</option>
+											<option>United Kingdom</option>
+											<option>Malaysia</option>
+											<option>Thailand</option>
+										</select>
+									</div>
+								</div> --%>
+
+								<!-- <div class="form-group">
+									<div class="custom-control custom-checkbox">
+										<input type="checkbox" name="agree" class="custom-control-input" id="agree">
+										<label class="custom-control-label" for="agree">I agree with the terms and
+											conditions</label>
+									</div>
+								</div> -->
+								<input type="hidden" id="token" name="token" value="" />
+								<div class="form-group">
+									<button type="submit" class="btn btn-primary btn-lg btn-block">
+										Register</button>
+								</div>
+							</form:form>
 				</div>
 			</div>
 

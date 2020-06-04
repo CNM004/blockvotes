@@ -52,7 +52,7 @@
 				</div>
 
 				<div class="card-body">
-					<form method="POST" action="#" class="needs-validation" novalidate="">
+					<form name='loginForm' action="<c:url value='j_spring_security_login' />" class="needs-validation" method="POST">
 						<div class="form-group">
 							<label for="email">Email</label>
 							<input id="email" type="email" class="form-control" name="email" tabindex="1" required
@@ -83,6 +83,8 @@
 								<label class="custom-control-label" for="remember-me">Remember Me</label>
 							</div>
 						</div>
+						
+						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 
 						<div class="form-group">
 							<button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">

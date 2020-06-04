@@ -17,8 +17,8 @@ public class App
 
 		MailService mailService = context.getBean("mailService", MailServiceImpl.class);
 
-		String senderEmailId = "lehuunhan150698@gmail.com";
-		String receiverEmailId = " ductrapt@gmail.com";
+		String senderEmailId = "ductrapt@gmail.com";
+		String receiverEmailId = "lehuunhan150698@gmail.com";
 		String subject = "Leave Letter";
 		String message = "I am not feeling well, I am taking sick leave";
 

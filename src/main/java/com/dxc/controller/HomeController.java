@@ -66,7 +66,14 @@ public class HomeController {
 		ModelAndView mv = new ModelAndView("home");
 		return mv;
 	}
+	
+//	@GetMapping("/login")
+//	public String login() {
+//		//List<User> users = userService.findAll();
+//		return "auth-login";
+//	}
 
+	
 	@PostMapping("/getData")
 	@ResponseBody
 	public List<TransactionConvert> getData() {

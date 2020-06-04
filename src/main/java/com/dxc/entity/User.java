@@ -1,11 +1,20 @@
 package com.dxc.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "users")
@@ -35,7 +44,14 @@ public class User extends BaseObject implements java.io.Serializable {
 	
 	@Column(name="is_voted")
 	boolean isVoted;
+	
+	@ManyToMany(mappedBy = "users", cascade = CascadeType.ALL)
+	private Set<Role> roles;
 
+	@OneToMany(mappedBy = "user", cascade=CascadeType.MERGE, fetch = FetchType.EAGER)
+	@JsonIgnore
+	private Set<UserRole> userRoles = new HashSet<>();
+	
 	public Long getId() {
 		return id;
 	}
@@ -90,6 +106,25 @@ public class User extends BaseObject implements java.io.Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public Set<Role> getRoles() {
+		if(roles == null) {
+			return new HashSet<Role>();
+		}
+		return roles;
+	}
+
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
+	}
+
+	public Set<UserRole> getUserRoles() {
+		return userRoles;
+	}
+
+	public void setUserRoles(Set<UserRole> userRoles) {
+		this.userRoles = userRoles;
 	}
 	
 }
