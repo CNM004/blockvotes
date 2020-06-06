@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dxc.dao.UserDao;
+import com.dxc.entity.Candidate;
 import com.dxc.entity.Role;
 import com.dxc.entity.User;
 import com.dxc.entity.UserRole;
@@ -67,6 +68,12 @@ public class UserServiceImpl implements UserService {
 	public List<User> findUserByCriteria(UserCriteria criteria) {
 		// TODO Auto-generated method stub
 		return userDao.findUserByCriteria(criteria);
+	}
+
+	@Override
+	public List<Candidate> findAllCandidates() {
+		// TODO Auto-generated method stub
+		return userDao.findAllCandidates();
 	}
 
 }

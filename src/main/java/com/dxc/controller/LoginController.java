@@ -1,5 +1,9 @@
 package com.dxc.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,9 +20,30 @@ public class LoginController {
 		return "auth-login";
 	}
 
+	@RequestMapping("/admin")
+	public String admin() {
+		return "admin";
+	}
+
 	@RequestMapping("/user")
 	public String user() {
+
+		String role = SecurityContextHolder.getContext().getAuthentication().getAuthorities() != null
+				? SecurityContextHolder.getContext().getAuthentication().getAuthorities().toString()
+				: "";
+		boolean isRoleAdmin = role.contains("ROLE_ADMIN");
+		if (isRoleAdmin) {
+			return "redirect:/admin";
+		}
 		return "opening";
+
+		// return "opening";
+	}
+	
+	@RequestMapping("/user/forgot-password")
+	public String forgetPassword() {
+
+		return "auth-forgot-password";
 	}
 
 	@RequestMapping("/logout")

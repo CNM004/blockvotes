@@ -13,27 +13,23 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i%7COpen+Sans:300,300i,400,400i,600,600i,700,700i"
 	rel="stylesheet">
-<link rel="stylesheet" type="text/css"
-	href="<c:url value='/asset/css/bootstrap.css' />">
-<link rel="stylesheet" type="text/css"
-	href="<c:url value='/asset/fonts/font-awesome/css/font-awesome.min.css' />">
-<link rel="stylesheet" type="text/css"
-	href="<c:url value='/asset/css/bootstrap-extended.css' />">
-<link rel="stylesheet" type="text/css"
-	href="<c:url value='/asset/css/app.css' />">
-<link rel="stylesheet" type="text/css"
-	href="<c:url value='/asset/css/colors.css' />">
-<link rel="stylesheet" type="text/css"
-	href="<c:url value='/asset/css/core/menu/menu-types/vertical-menu.css' />">
-<link rel="stylesheet" type="text/css"
-	href="<c:url value='/asset/css/core/menu/menu-types/vertical-overlay-menu.css' />">
-<link rel="stylesheet" type="text/css"
-	href="<c:url value='/asset/css/style.css' />">
-<script src="<c:url value='/asset/js/jquery.min.js' />"
-	type="text/javascript"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+		integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+<script src="<c:url value='/asset/js/jquery.min.js' />" type="text/javascript"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+		integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+		crossorigin="anonymous"></script>
 
 </head>
 <div class="container">
+<jsp:include page="header.jsp"></jsp:include>
 <div class="content-header row">
 	<div class="content-header-left col-md-6 col-xs-12 mb-1">
 		<h2 class="content-header-title">Blockchain-based e-voting system</h2>

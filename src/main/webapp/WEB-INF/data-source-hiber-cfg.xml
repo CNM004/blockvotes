@@ -22,6 +22,7 @@
               <value>com.dxc.entity.User</value>
               <value>com.dxc.entity.Role</value>
               <value>com.dxc.entity.UserRole</value>
+              <value>com.dxc.entity.Candidate</value>
           </list>
       </property>
  

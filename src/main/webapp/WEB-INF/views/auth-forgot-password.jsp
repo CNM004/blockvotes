@@ -53,7 +53,7 @@
 
           <div class="card-body">
             <p class="text-muted">We will send a link to reset your password</p>
-            <form method="POST">
+            <form method="POST" action="register/forgot-password">
               <div class="form-group">
                 <label for="email">Email</label>
                 <input id="email" type="email" class="form-control" name="email" tabindex="1" required autofocus>

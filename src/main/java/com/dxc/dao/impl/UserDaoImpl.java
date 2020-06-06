@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.dxc.chain.StringUtil;
 import com.dxc.dao.UserDao;
+import com.dxc.entity.Candidate;
 import com.dxc.entity.Role;
 import com.dxc.entity.User;
 import com.dxc.entity.UserRole;
@@ -113,6 +114,17 @@ public class UserDaoImpl implements UserDao {
 		}
 		
 		return query.getResultList();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Candidate> findAllCandidates() {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.getCurrentSession();
+
+		List<Candidate> list = session.createQuery("from Candidate").list();
+
+		return list;
 	}
 
 }

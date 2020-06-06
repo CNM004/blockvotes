@@ -1,12 +1,14 @@
 package com.dxc.chain;
 
-public class Candidate {
+public class CandidateChain {
 	private String name;
+	private String details;
 	private String publicKey;
 	
-	public Candidate(String name, int age, String publicKey) {
+	public CandidateChain(String name, String details, String publicKey) {
 		super();
 		this.name = name;
+		this.details = details;
 		this.publicKey = publicKey;
 	}
 	public String getName() {

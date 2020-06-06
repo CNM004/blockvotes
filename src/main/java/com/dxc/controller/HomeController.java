@@ -17,14 +17,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dxc.chain.Block;
-import com.dxc.chain.Candidate;
+import com.dxc.chain.CandidateChain;
 import com.dxc.chain.StringUtil;
 import com.dxc.chain.Transaction;
 import com.dxc.chain.TransactionConvert;
 import com.dxc.chain.TransactionOutput;
 import com.dxc.chain.Wallet;
 import com.dxc.entity.User;
+import com.dxc.entity.Candidate;
 import com.dxc.service.UserService;
+
 
 @Controller
 public class HomeController {
@@ -32,7 +34,7 @@ public class HomeController {
 	public static List<Block> blockchain = new ArrayList<Block>();
 	public static HashMap<String, TransactionOutput> UTXOs = new HashMap<String, TransactionOutput>();
 	public static List<Wallet> wallets = new ArrayList<Wallet>();
-	public static List<Candidate> candidates = new ArrayList<Candidate>();
+	public static List<CandidateChain> candidates = new ArrayList<CandidateChain>();
 
 	List<TransactionConvert> result = new ArrayList<TransactionConvert>();
 	int index = 0;
@@ -94,18 +96,19 @@ public class HomeController {
 		return result;
 	}
 
-	@GetMapping("/admin")
+	@GetMapping("/admin/abc")
 	public String admin() {
 		//List<User> users = userService.findAll();
 		return "auth-register";
 	}
 
 	@SuppressWarnings("serial")
-	@PostMapping("/setting")
+	@PostMapping("/admin/setting")
 	@ResponseBody
 	public byte[] settingWallet() {
 		Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
 		try {
+			List<Candidate> candidateEntities = userService.findAllCandidates();
 			if (blockchain.size() == 0) {
 				mainWallet = new Wallet();
 				Wallet coinbase = new Wallet();
@@ -119,31 +122,34 @@ public class HomeController {
 				genesis.addTransaction(genesisTransaction);
 				addBlock(genesis);
 				wallets.add(mainWallet);
-				List<String> names = new ArrayList<String>() {
-					{
-						add("Nguyen Van Mot");
-						add("Nguyen Van Hai");
-						add("Nguyen Van Ba");
-						add("Nguyen Van Bon");
-						add("Nguyen Van Nam");
-					}
-				};
-				for (int i = 0; i < 5; i++) {
+				
+				
+//				List<String> names = new ArrayList<String>() {
+//					{
+//						add("Nguyen Van Mot");
+//						add("Nguyen Van Hai");
+//						add("Nguyen Van Ba");
+//						add("Nguyen Van Bon");
+//						add("Nguyen Van Nam");
+//					}
+//				};
+				for (int i = 0; i < candidateEntities.size(); i++) {
 					newWallet = new Wallet();
 					Block block = new Block(blockchain.get(blockchain.size() - 1).hash);
 					block.addTransaction(wallets.get(0).sendFunds(newWallet.publicKey, 0));
 					addBlock(block);
 					wallets.add(newWallet);
-					candidates.add(new Candidate(names.get(i), 30, newWallet.publicKey.toString().trim()));
+					candidates.add(new CandidateChain(candidateEntities.get(i).getFullname(), candidateEntities.get(i).getDetails(), newWallet.publicKey.toString().trim()));
 				}
-				return "Thiết lập thành công".getBytes(StandardCharsets.UTF_8);
+				return "Created Candidates successfull".getBytes(StandardCharsets.UTF_8);
 			} else {
-				return "Thiết lập thất bại".getBytes(StandardCharsets.UTF_8);
+				return "You created Candidates before!".getBytes(StandardCharsets.UTF_8);
 			}
 
 		} catch (Exception e) {
 			// TODO: handle exception
-			return "Thiết lập thất bại".getBytes(StandardCharsets.UTF_8);
+			System.out.println(e.getMessage());
+			return "Created Candidate failed. Please contact system admin".getBytes(StandardCharsets.UTF_8);
 		}
 	}
 
@@ -158,10 +164,10 @@ public class HomeController {
 			addBlock(block);
 			wallets.add(newWallet);
 			// save user(username, password, privatekey, publickey)
-			return "Tạo ví thành công".getBytes(StandardCharsets.UTF_8);
+			return "Successfully!".getBytes(StandardCharsets.UTF_8);
 		} catch (Exception e) {
 			// TODO: handle exception
-			return "Tạo ví thất bại".getBytes(StandardCharsets.UTF_8);
+			return "Failed!".getBytes(StandardCharsets.UTF_8);
 		}
 	}
 

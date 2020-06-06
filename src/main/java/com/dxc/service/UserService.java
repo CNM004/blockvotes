@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.dxc.entity.User;
+import com.dxc.entity.Candidate;
 import com.dxc.entity.Role;
 import com.dxc.entity.UserRole;
 import com.dxc.filter.UserCriteria;;
@@ -18,4 +19,5 @@ public interface UserService {
 	Long save(UserRole entity);
 	Long countUser(UserCriteria criteria);
 	List<User> findUserByCriteria(UserCriteria criteria);
+	List<Candidate> findAllCandidates();
 }

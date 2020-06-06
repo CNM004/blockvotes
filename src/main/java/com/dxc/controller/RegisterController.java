@@ -103,4 +103,32 @@ public class RegisterController {
 		userService.update(user);
 		return "active";
 	}
+	
+	@PostMapping("/forgot-password")
+	@ResponseBody
+	public byte[] forgot(@RequestParam("email") String email) {
+		UserCriteria criteria = new UserCriteria(email, "");
+		List<User> users = userService.findUserByCriteria(criteria);
+		
+		if(users.size() == 0) {
+			return "This email does not exist!".getBytes(StandardCharsets.UTF_8);
+		}
+		User user = users.get(0);
+		user.setPassword("{noop}"+"111111");
+		userService.update(user);
+		AbstractApplicationContext context = new AnnotationConfigApplicationContext(
+				AppConfig.class);
+
+		MailService mailService = context.getBean("mailService", MailServiceImpl.class);
+
+		String senderEmailId = "ductrapt@gmail.com";
+		String receiverEmailId = email;
+		String subject = "Dear "+user.getFullname()+",\n";
+		String message = "The new password's you: 111111\n"
+						+"\nYours truthfully,\n"
+						+"Blockvote Team";
+		mailService.sendEmail(senderEmailId, receiverEmailId, subject, message);
+		context.close();
+		return "Register successfully!".getBytes(StandardCharsets.UTF_8);
+	}
 }

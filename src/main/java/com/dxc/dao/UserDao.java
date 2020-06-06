@@ -5,6 +5,7 @@ import java.util.List;
 import com.dxc.entity.Role;
 import com.dxc.entity.User;
 import com.dxc.entity.UserRole;
+import com.dxc.entity.Candidate;
 import com.dxc.filter.UserCriteria;
 
 public interface UserDao {
@@ -16,4 +17,5 @@ public interface UserDao {
 	Long save(UserRole entity);
 	Long countUser(UserCriteria criteria);
 	List<User> findUserByCriteria(UserCriteria criteria);
+	List<Candidate> findAllCandidates();
 }
