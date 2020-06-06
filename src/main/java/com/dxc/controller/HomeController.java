@@ -1,18 +1,21 @@
 package com.dxc.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.security.Security;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -22,9 +25,11 @@ import com.dxc.chain.StringUtil;
 import com.dxc.chain.Transaction;
 import com.dxc.chain.TransactionConvert;
 import com.dxc.chain.TransactionOutput;
+import com.dxc.chain.VoteResult;
 import com.dxc.chain.Wallet;
-import com.dxc.entity.User;
 import com.dxc.entity.Candidate;
+import com.dxc.entity.User;
+import com.dxc.filter.UserCriteria;
 import com.dxc.service.UserService;
 
 
@@ -69,40 +74,67 @@ public class HomeController {
 		return mv;
 	}
 	
-//	@GetMapping("/login")
-//	public String login() {
-//		//List<User> users = userService.findAll();
-//		return "auth-login";
-//	}
+	@GetMapping("/vote-result")
+	public String voteResult(Model model) {
 
-	
-	@PostMapping("/getData")
-	@ResponseBody
-	public List<TransactionConvert> getData() {
-		Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
-		if (blockchain.size() > 0) {
-			for (int i = index; i < blockchain.size(); i++) {
-				System.out.println("block " + i + ":");
-				List<Transaction> transBlock = blockchain.get(i).transactions;
-				if (transBlock.size() > 0) {
-					TransactionConvert e = new TransactionConvert(transBlock.get(0).transactionId,
-							transBlock.get(0).sender.toString(), transBlock.get(0).reciepient.toString(),
-							transBlock.get(0).value);
-					result.add(e);
+		if(candidates.size()>0) {
+			List<String> voteResults = new ArrayList<String>() {
+				{
+					add(candidates.get(0).getName()+":"+wallets.get(1).getBalance());
+					add(candidates.get(1).getName()+":"+wallets.get(2).getBalance());
+					add(candidates.get(2).getName()+":"+wallets.get(3).getBalance());
 				}
-			}
-			index = blockchain.size();
+			};
+			
+			model.addAttribute("voteResults", voteResults);
+			model.addAttribute("result", result);
 		}
-		return result;
+		
+		return "vote-result";
 	}
-
-	@GetMapping("/admin/abc")
-	public String admin() {
+	
+	@GetMapping("/vote-detail")
+	public String voteDetailt(Model model) {
+		model.addAttribute("candidates", candidates);
+		return "vote-detail";
+	}
+	
+	@GetMapping("/candidates")
+	public String Candidate(Model model) {
 		//List<User> users = userService.findAll();
-		return "auth-register";
+		model.addAttribute("candidates", candidates);
+		model.addAttribute("total", candidates.size());
+		return "candidate";
 	}
+	
+	@GetMapping("/histories")
+	public String History(Model model) {
+		model.addAttribute("result", result);
+		model.addAttribute("total", result.size());
+		return "history";
+	}
+	
+	@GetMapping("/profile")
+	public String Profile(Model model) {
+		return "profile";
+	}
+	
+	/*
+	 * @PostMapping("/getData")
+	 * 
+	 * @ResponseBody public List<TransactionConvert> getData() {
+	 * Security.addProvider(new
+	 * org.bouncycastle.jce.provider.BouncyCastleProvider()); if (blockchain.size()
+	 * > 0) { for (int i = index; i < blockchain.size(); i++) {
+	 * System.out.println("block " + i + ":"); List<Transaction> transBlock =
+	 * blockchain.get(i).transactions; if (transBlock.size() > 0) {
+	 * TransactionConvert e = new
+	 * TransactionConvert(transBlock.get(0).transactionId,
+	 * transBlock.get(0).sender.toString(), transBlock.get(0).reciepient.toString(),
+	 * transBlock.get(0).value); result.add(e); } } index = blockchain.size(); }
+	 * return result; }
+	 */
 
-	@SuppressWarnings("serial")
 	@PostMapping("/admin/setting")
 	@ResponseBody
 	public byte[] settingWallet() {
@@ -123,16 +155,6 @@ public class HomeController {
 				addBlock(genesis);
 				wallets.add(mainWallet);
 				
-				
-//				List<String> names = new ArrayList<String>() {
-//					{
-//						add("Nguyen Van Mot");
-//						add("Nguyen Van Hai");
-//						add("Nguyen Van Ba");
-//						add("Nguyen Van Bon");
-//						add("Nguyen Van Nam");
-//					}
-//				};
 				for (int i = 0; i < candidateEntities.size(); i++) {
 					newWallet = new Wallet();
 					Block block = new Block(blockchain.get(blockchain.size() - 1).hash);
@@ -152,22 +174,60 @@ public class HomeController {
 			return "Created Candidate failed. Please contact system admin".getBytes(StandardCharsets.UTF_8);
 		}
 	}
+	
+	@PostMapping("/getCandidates")
+	@ResponseBody
+	public List<CandidateChain> getCandidates() {
+		
+		return candidates;
+	}
 
-	@PostMapping("/create-user")
+	@PostMapping("/user/create-user")
 	@ResponseBody
 	public byte[] saveWallet() {
 		Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
 		try {
-			newWallet = new Wallet();
-			Block block = new Block(blockchain.get(blockchain.size() - 1).hash);
-			block.addTransaction(wallets.get(0).sendFunds(newWallet.publicKey, 1));
-			addBlock(block);
-			wallets.add(newWallet);
-			// save user(username, password, privatekey, publickey)
-			return "Successfully!".getBytes(StandardCharsets.UTF_8);
+			String username="";
+			Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+			if (principal instanceof UserDetails) {
+				username = ((UserDetails)principal).getUsername();
+			} else {
+				username = principal.toString();
+			}
+			UserCriteria criteria = new UserCriteria(username, "");
+			List<User> users = userService.findUserByCriteria(criteria);
+			User user = users.get(0);
+			boolean flag = true;
+			// can check user.getPrivateKey() != "" because when user created wallet, user will be update with publickey and privateKy
+			for(int i=1; i<wallets.size(); i++) {
+				if(isNullOrEmpty(user.getPrivateKey())) {
+					flag = true;
+					break;
+				}
+				else if(StringUtil.comparrKey(wallets.get(i).privateKey.toString(), user.getPrivateKey())) {
+					flag=false;
+					break;
+				}
+			}
+			if(flag) {
+				newWallet = new Wallet();
+				Block block = new Block(blockchain.get(blockchain.size() - 1).hash);
+				block.addTransaction(wallets.get(0).sendFunds(newWallet.publicKey, 1));
+				addBlock(block);
+				wallets.add(newWallet);
+				
+				user.setPrivateKey(newWallet.privateKey.toString().trim());
+				user.setPublicKey(newWallet.publicKey.toString().trim());
+				userService.update(user);
+				return "Successfully!".getBytes(StandardCharsets.UTF_8);
+			}
+			else {
+				return "Failed! This account completed the Begin function".getBytes(StandardCharsets.UTF_8);
+			}
+			
 		} catch (Exception e) {
 			// TODO: handle exception
-			return "Failed!".getBytes(StandardCharsets.UTF_8);
+			return "Failed! Please contact system admin!".getBytes(StandardCharsets.UTF_8);
 		}
 	}
 
@@ -185,21 +245,31 @@ public class HomeController {
 
 	@PostMapping("/vote")
 	@ResponseBody
-	public TransactionConvert vote(@RequestBody String to) {
+	public String vote(@RequestParam("to") String to) {
 		// get privatekey from user login
 		String from = "";
+		String username = "";
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		if (principal instanceof UserDetails) {
+			username = ((UserDetails)principal).getUsername();
+		} else {
+			username = principal.toString();
+		}
+		UserCriteria criteria = new UserCriteria(username, "");
+		List<User> users = userService.findUserByCriteria(criteria);
+		User user = users.get(0);
 		// data is public's candicate
 		Wallet fromWallet = new Wallet();
 		Wallet toWallet = new Wallet();
 		int flag = 0;
 		if (wallets.size() > 0) {
 			for (int i = 0; i < wallets.size(); i++) {
-				if (StringUtil.comparrKey(wallets.get(i).privateKey.toString(), from)) {
+				if (StringUtil.comparrKeyHtml(wallets.get(i).privateKey.toString(), user.getPrivateKey())) {
 					fromWallet = wallets.get(i);
 					flag++;
 					if (flag == 2)
 						break;
-				} else if (StringUtil.comparrKey(wallets.get(i).publicKey.toString(), to)) {
+				} else if (StringUtil.comparrKeyHtml(wallets.get(i).publicKey.toString(), to)) {
 					toWallet = wallets.get(i);
 					flag++;
 					if (flag == 2)
@@ -207,13 +277,26 @@ public class HomeController {
 				}
 			}
 		}
+		String name="";
+		for(int i=0; i<candidates.size(); i++) {
+			if (StringUtil.comparrKey(candidates.get(i).getPublicKey().toString(), to)) {
+				name = candidates.get(i).getName();
+			}
+		}
 		Block block1 = new Block(blockchain.get(blockchain.size() - 1).hash);
-		block1.addTransaction(fromWallet.sendFunds(toWallet.publicKey, 1));
-		addBlock(block1);
-		List<Transaction> transBlock = blockchain.get(blockchain.size() - 1).transactions;
-		TransactionConvert e = new TransactionConvert(transBlock.get(0).transactionId,
-				transBlock.get(0).sender.toString(), transBlock.get(0).reciepient.toString(), transBlock.get(0).value);
-		return e;
+		boolean isSuccess = block1.addTransaction(fromWallet.sendFunds(toWallet.publicKey, 1));
+		if(isSuccess) {
+			addBlock(block1);
+			List<Transaction> transBlock = blockchain.get(blockchain.size() - 1).transactions;
+			TransactionConvert e = new TransactionConvert(transBlock.get(0).transactionId,
+					transBlock.get(0).sender.toString(), transBlock.get(0).reciepient.toString(), name, new Date(block1.timeStamp));
+			result.add(e);
+			return "Cheers, you voted to candidate! Thank you for contributing to society!";
+		}
+		else {
+			return "Sorry, you can only have once voted for each  attempt!";
+		}
+		
 	}
 
 	//// test console

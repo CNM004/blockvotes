@@ -10,10 +10,12 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8'">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+	<%-- <meta name="_csrf" content="${_csrf.token}"/>
+	<meta name="_csrf_header" content="${_csrf.headerName}"/> --%>
 	<link
 		href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i%7COpen+Sans:300,300i,400,400i,600,600i,700,700i"
 		rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="<c:url value='/asset/css/bootstrap.css' />">
+	<%-- <link rel="stylesheet" type="text/css" href="<c:url value='/asset/css/bootstrap.css' />">
 	<link rel="stylesheet" type="text/css" href="<c:url value='/asset/fonts/font-awesome/css/font-awesome.min.css' />">
 	<link rel="stylesheet" type="text/css" href="<c:url value='/asset/css/bootstrap-extended.css' />">
 	<link rel="stylesheet" type="text/css" href="<c:url value='/asset/css/app.css' />">
@@ -22,7 +24,7 @@
 	<link rel="stylesheet" type="text/css"
 		href="<c:url value='/asset/css/core/menu/menu-types/vertical-overlay-menu.css' />">
 	<link rel="stylesheet" type="text/css" href="<c:url value='/asset/css/style.css' />">
-
+ --%>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
 		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
@@ -30,9 +32,9 @@
 
 	<script src="<c:url value='/asset/js/jquery.min.js' />" type="text/javascript"></script>
 
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+	<%-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-		crossorigin="anonymous"></script>
+		crossorigin="anonymous"></script> --%>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
 		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
 		crossorigin="anonymous"></script>
@@ -44,49 +46,7 @@
 
 <div id="app">
 	<!-- Header -->
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand" href="opening.jsp">
-			<img src="https://image.flaticon.com/icons/svg/893/893071.svg" width="30" height="30"
-				class="d-inline-block align-top" alt="">
-			Blockvotes
-		</a>
-
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active">
-					<a class="nav-link" href="opening.jsp">Opening<span class="sr-only">(current)</span></a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="history.jsp">History</a>
-				</li>
-			</ul>
-			<form class="form-inline my-2 my-lg-0">
-				<div class="dropdown">
-					<a href="#" data-toggle="dropdown"
-						class="nav-link dropdown-toggle nav-link-lg nav-link-user text-white">
-						<img alt="image"
-							src="https://i.pinimg.com/originals/37/8c/4b/378c4ba6ce42d11d5b3023b5e63134f4.jpg"
-							class="rounded-circle mr-1" width="50" height="50">
-						<div class="d-sm-none d-lg-inline-block">Hi, BlockVotes!</div>
-					</a>
-					<div class="dropdown-menu dropdown-menu-right">
-						<a href="profile.jsp" class="dropdown-item has-icon">
-							<i class="far fa-user"></i> Profile
-						</a>
-						<div class="dropdown-divider"></div>
-						<a href="#" class="dropdown-item has-icon text-danger">
-							<i class="fas fa-sign-out-alt"></i> Logout
-						</a>
-					</div>
-				</div>
-			</form>
-		</div>
-	</nav>
+	<jsp:include page="header.jsp"/>
 
 	<div class="container mt-5">
 		<div class="col-12 col-md-10 offset-md-1 col-lg-10 offset-lg-1">
@@ -120,62 +80,15 @@
 			</section>
 
 			<div class="row row-cols-1 row-cols-md-3">
+			<c:forEach items="${candidates}" var="item">
 				<div class="col mb-4">
 					<div class="card h-100">
 						<img alt="image" src="https://image.flaticon.com/icons/svg/2919/2919600.svg"
 							class="rounded-circle card-img-top mt-3" width="70" height="70" data-toggle="tooltip"
 							title="Gordon Ramsay">
 						<div class="card-body">
-							<h5 class="card-title">Gordon Ramsay</h5>
-							<p class="card-text">#1</p>
-							<p class="card-text">Vote me. Vote me.</p>
-						</div>
-						<div class="card-footer">
-							<div class="row justify-content-around">
-								<button type="button" class="btn btn-primary" data-toggle="modal"
-									data-target="#infoModal">
-									Infomation
-								</button>
-								<button type="button" class="btn btn-danger" data-toggle="modal"
-									data-target="#confirmModal">
-									Vote
-								</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col mb-4">
-					<div class="card h-100">
-						<img alt="image" src="https://image.flaticon.com/icons/svg/2919/2919600.svg"
-							class="rounded-circle card-img-top mt-3" width="70" height="70" data-toggle="tooltip"
-							title="Taylor Swift">
-						<div class="card-body">
-							<h5 class="card-title">Taylor Swift</h5>
-							<p class="card-text">#2</p>
-							<p class="card-text">I love you guys.</p>
-						</div>
-						<div class="card-footer">
-							<div class="row justify-content-around">
-								<button type="button" class="btn btn-primary" data-toggle="modal"
-									data-target="#infoModal">
-									Infomation
-								</button>
-								<button type="button" class="btn btn-danger" data-toggle="modal"
-									data-target="#confirmModal">
-									Vote
-								</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col mb-4">
-					<div class="card h-100">
-						<img alt="image" src="https://image.flaticon.com/icons/svg/2919/2919600.svg"
-							class="rounded-circle card-img-top mt-3" width="70" height="70" data-toggle="tooltip"
-							title="Lady Gaga">
-						<div class="card-body">
-							<h5 class="card-title">Lady Gaga</h5>
-							<p class="card-text">#3</p>
+							<h5 class="card-title">${item.name}</h5>
+							<p class="card-text">${item.publicKey }</p>
 							<p class="card-text">Please vote me.</p>
 						</div>
 						<div class="card-footer">
@@ -184,7 +97,7 @@
 									data-target="#infoModal">
 									Infomation
 								</button>
-								<button type="button" class="btn btn-danger" data-toggle="modal"
+								<button type="button" value="${item.publicKey }" class="btn btn-danger abc" data-toggle="modal"
 									data-target="#confirmModal">
 									Vote
 								</button>
@@ -192,30 +105,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col mb-4">
-					<div class="card h-100">
-						<img alt="image" src="https://image.flaticon.com/icons/svg/2919/2919600.svg"
-							class="rounded-circle card-img-top mt-3" width="70" height="70" data-toggle="tooltip"
-							title="Maroon 5">
-						<div class="card-body">
-							<h5 class="card-title">Maroon 5</h5>
-							<p class="card-text">#4</p>
-							<p class="card-text">For a better life.</p>
-						</div>
-						<div class="card-footer">
-							<div class="row justify-content-around">
-								<button type="button" class="btn btn-primary" data-toggle="modal"
-									data-target="#infoModal">
-									Infomation
-								</button>
-								<button type="button" class="btn btn-danger" data-toggle="modal"
-									data-target="#confirmModal">
-									Vote
-								</button>
-							</div>
-						</div>
-					</div>
-				</div>
+			</c:forEach>
 			</div>
 
 
@@ -284,9 +174,13 @@
 						<h3>Are you sure?</h3>
 					</div>
 					<div class="row justify-content-center">
+						<form method="POST" action="<c:url value="/vote" />">
 						<button type="button" class="btn btn-secondary m-3" data-dismiss="modal">No</button>
-						<button type="button" class="btn btn-primary m-3" data-toggle="modal"
+						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+						<input type="hidden" name="to" value="" id="to"/>
+						<button type="submit" class="btn btn-primary m-3 yesVote" data-toggle="modal"
 							data-target="#yesModal">Yes</button>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -306,7 +200,7 @@
 						<h3>Thank you!</h3>
 					</div>
 					<div class="row justify-content-center">
-						<a href="vote-result.jsp" class="btn btn-success">Detail</a>
+						<a href="<c:url value="/vote-result" />" class="btn btn-success">Detail</a>
 					</div>
 				</div>
 			</div>
@@ -315,11 +209,32 @@
 </div>
 
 <script type="text/javascript">
-	$(document).ready(function () {
-		$('#vote').click(function () {
-			//todo
-		})
+$(function() {
+	  $('#confirmModal').bind('show',function(){
+	      alert('howdy');
+	      $("#to").val('bosta');
+	  });
 	});
+$(".abc").on("click", function() {
+			var value = $(this).val();
+			$("#to").val(value);
+		});
+<%-- var token = $("meta[name='_csrf']").attr("content");
+var header = $("meta[name='_csrf_header']").attr("content");
+$('.yesVote').click(function(){
+	var ctx = "<%=request.getContextPath()%>";
+	var xmlhttp = new XMLHttpRequest(); 
+	var url = ctx+"/vote";
+	
+	xmlhttp.open("POST", url);
+	xmlhttp.setRequestHeader(header, token);
+	xmlhttp.onreadystatechange = function () {
+         var data = xmlhttp.responseText;
+         $("#result").empty();
+			$("#result").append(data);
+    };
+	xmlhttp.send(value);
+}); --%>
 
 </script>
 <html>

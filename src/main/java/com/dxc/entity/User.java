@@ -45,6 +45,12 @@ public class User extends BaseObject implements java.io.Serializable {
 	@Column(name="is_voted")
 	boolean isVoted;
 	
+	@Column(name="publicKey")
+	private String publicKey;
+	
+	@Column(name="privateKey")
+	private String privateKey;
+	
 	@ManyToMany(mappedBy = "users", cascade = CascadeType.ALL)
 	private Set<Role> roles;
 
@@ -125,6 +131,22 @@ public class User extends BaseObject implements java.io.Serializable {
 
 	public void setUserRoles(Set<UserRole> userRoles) {
 		this.userRoles = userRoles;
+	}
+
+	public String getPublicKey() {
+		return publicKey;
+	}
+
+	public void setPublicKey(String publicKey) {
+		this.publicKey = publicKey;
+	}
+
+	public String getPrivateKey() {
+		return privateKey;
+	}
+
+	public void setPrivateKey(String privateKey) {
+		this.privateKey = privateKey;
 	}
 	
 }

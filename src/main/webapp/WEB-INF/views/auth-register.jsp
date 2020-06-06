@@ -144,6 +144,7 @@
 						var formData = $('form').serialize();
 						$.post(ctx + "/register/save", formData, function (data) {
 							alert(data);
+							window.location.href = '/blockvotes/login';
 						})
 							.fail(function (data) {
 							});

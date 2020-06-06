@@ -24,6 +24,11 @@ public class LoginController {
 	public String admin() {
 		return "admin";
 	}
+	
+	@RequestMapping("/opening")
+	public String opening() {
+		return "opening";
+	}
 
 	@RequestMapping("/user")
 	public String user() {
@@ -35,9 +40,7 @@ public class LoginController {
 		if (isRoleAdmin) {
 			return "redirect:/admin";
 		}
-		return "opening";
-
-		// return "opening";
+		return "redirect:/opening";
 	}
 	
 	@RequestMapping("/user/forgot-password")

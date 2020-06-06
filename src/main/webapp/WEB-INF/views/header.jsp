@@ -1,5 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-	<a class="navbar-brand" href="#">
+	<a class="navbar-brand" href="<c:url value="/" />">
 		<img src="https://image.flaticon.com/icons/svg/893/893071.svg" width="30" height="30"
 			class="d-inline-block align-top" alt="">
 		Blockvotes
@@ -12,13 +17,22 @@
 
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<ul class="navbar-nav mr-auto">
-			<li class="nav-item active">
-				<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="#">Candidate</a>
-			</li>
-		</ul>
+				<li class="nav-item active">
+					<a class="nav-link" href="<c:url value="/opening" />">Opening<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="<c:url value="/candidates" />">Candidate</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="<c:url value="/histories" />">History</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="<c:url value="/vote-detail" />">Vote</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="<c:url value="/vote-result" />">Vote Result</a>
+				</li>
+			</ul>
 		<form class="form-inline my-2 my-lg-0" action="j_spring_security_logout" method="post">
 				<div class="dropdown">
 					<a href="#" data-toggle="dropdown"
@@ -29,7 +43,7 @@
 						<div class="d-sm-none d-lg-inline-block">Hi, BlockVotes!</div>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right">
-						<a href="profile.jsp" class="dropdown-item has-icon">
+						<a href="<c:url value="/profile" />" class="dropdown-item has-icon">
 							<i class="far fa-user"></i> Profile
 						</a>
 						<div class="dropdown-divider"></div>

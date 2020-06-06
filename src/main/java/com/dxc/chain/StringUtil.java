@@ -91,4 +91,14 @@ public class StringUtil {
 		}
 		return false;
 	}
+	public static boolean comparrKeyHtml(String a,String b) {
+		if(a.substring(a.indexOf('['), a.indexOf(']')).equals(b.substring(b.indexOf('['), b.indexOf(']')))) {
+			if(a.substring(a.indexOf("X:"),a.indexOf("Y:")).trim().equals(b.substring(b.indexOf("X:"),b.indexOf("Y:")).trim())){
+				if(a.substring(a.indexOf("Y:"),a.length()-1).trim().equals(b.substring(b.indexOf("Y:"),b.length()).trim())){
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 }
