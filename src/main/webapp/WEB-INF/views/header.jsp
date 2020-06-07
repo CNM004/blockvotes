@@ -17,10 +17,10 @@
 
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<ul class="navbar-nav mr-auto">
-				<li class="nav-item active">
+				<%-- <li class="nav-item active">
 					<a class="nav-link" href="<c:url value="/opening" />">Opening<span class="sr-only">(current)</span></a>
-				</li>
-				<li class="nav-item">
+				</li> --%>
+				<li class="nav-item active">
 					<a class="nav-link" href="<c:url value="/candidates" />">Candidate</a>
 				</li>
 				<li class="nav-item">
@@ -40,7 +40,7 @@
 						<img alt="image"
 							src="https://i.pinimg.com/originals/37/8c/4b/378c4ba6ce42d11d5b3023b5e63134f4.jpg"
 							class="rounded-circle mr-1" width="50" height="50">
-						<div class="d-sm-none d-lg-inline-block">Hi, BlockVotes!</div>
+						<div class="d-sm-none d-lg-inline-block">Hi, ${pageContext.request.userPrincipal.name}!</div>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right">
 						<a href="<c:url value="/profile" />" class="dropdown-item has-icon">

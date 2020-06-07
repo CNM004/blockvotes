@@ -141,13 +141,21 @@
 				var ctx = "<%=request.getContextPath()%>";
 				$.post(ctx + "/register/search", formData, function (data) {
 					if (data.success == "true") {
-						var formData = $('form').serialize();
-						$.post(ctx + "/register/save", formData, function (data) {
-							alert(data);
-							window.location.href = '/blockvotes/login';
-						})
-							.fail(function (data) {
-							});
+						var pwd = $('#password').val();
+						var pwdc = $('#password').val();
+						if(pwd == pwdc){
+							var formData = $('form').serialize();
+							$.post(ctx + "/register/save", formData, function (data) {
+								alert(data);
+								window.location.href = '/blockvotes/login';
+							})
+								.fail(function (data) {
+								});
+						}
+						else{
+							alert('Password and Password confirm are not equal!')
+						}
+						
 					}
 				})
 					.fail(function (data) {

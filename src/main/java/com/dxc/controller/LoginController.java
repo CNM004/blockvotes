@@ -40,7 +40,7 @@ public class LoginController {
 		if (isRoleAdmin) {
 			return "redirect:/admin";
 		}
-		return "redirect:/opening";
+		return "redirect:/";
 	}
 	
 	@RequestMapping("/user/forgot-password")

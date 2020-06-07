@@ -52,7 +52,7 @@
 			<!-- Breadcrumb-->
 			<nav aria-label="breadcrumb mt-0">
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="<c:url value="/opening" />">Opening</a></li>
+					<%-- <li class="breadcrumb-item"><a href="<c:url value="/opening" />">Opening</a></li> --%>
 					<li class="breadcrumb-item"><a href="<c:url value="/vote-detail" />">Blockchain E-Voting System 1</a></li>
 					<li class="breadcrumb-item active" aria-current="page">Result</li>
 				</ol>

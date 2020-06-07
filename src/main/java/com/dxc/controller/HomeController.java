@@ -258,44 +258,50 @@ public class HomeController {
 		UserCriteria criteria = new UserCriteria(username, "");
 		List<User> users = userService.findUserByCriteria(criteria);
 		User user = users.get(0);
-		// data is public's candicate
-		Wallet fromWallet = new Wallet();
-		Wallet toWallet = new Wallet();
-		int flag = 0;
-		if (wallets.size() > 0) {
-			for (int i = 0; i < wallets.size(); i++) {
-				if (StringUtil.comparrKeyHtml(wallets.get(i).privateKey.toString(), user.getPrivateKey())) {
-					fromWallet = wallets.get(i);
-					flag++;
-					if (flag == 2)
-						break;
-				} else if (StringUtil.comparrKeyHtml(wallets.get(i).publicKey.toString(), to)) {
-					toWallet = wallets.get(i);
-					flag++;
-					if (flag == 2)
-						break;
+		if(!isNullOrEmpty(user.getPrivateKey())) {
+			// data is public's candicate
+			Wallet fromWallet = new Wallet();
+			Wallet toWallet = new Wallet();
+			int flag = 0;
+			if (wallets.size() > 0) {
+				for (int i = 0; i < wallets.size(); i++) {
+					if (StringUtil.comparrKeyHtml(wallets.get(i).privateKey.toString(), user.getPrivateKey())) {
+						fromWallet = wallets.get(i);
+						flag++;
+						if (flag == 2)
+							break;
+					} else if (StringUtil.comparrKeyHtml(wallets.get(i).publicKey.toString(), to)) {
+						toWallet = wallets.get(i);
+						flag++;
+						if (flag == 2)
+							break;
+					}
 				}
 			}
-		}
-		String name="";
-		for(int i=0; i<candidates.size(); i++) {
-			if (StringUtil.comparrKey(candidates.get(i).getPublicKey().toString(), to)) {
-				name = candidates.get(i).getName();
+			String name="";
+			for(int i=0; i<candidates.size(); i++) {
+				if (StringUtil.comparrKey(candidates.get(i).getPublicKey().toString(), to)) {
+					name = candidates.get(i).getName();
+				}
+			}
+			Block block1 = new Block(blockchain.get(blockchain.size() - 1).hash);
+			boolean isSuccess = block1.addTransaction(fromWallet.sendFunds(toWallet.publicKey, 1));
+			if(isSuccess) {
+				addBlock(block1);
+				List<Transaction> transBlock = blockchain.get(blockchain.size() - 1).transactions;
+				TransactionConvert e = new TransactionConvert(transBlock.get(0).transactionId,
+						transBlock.get(0).sender.toString(), transBlock.get(0).reciepient.toString(), name, new Date(block1.timeStamp));
+				result.add(e);
+				return "Cheers, you voted to candidate! Thank you for contributing to society!";
+			}
+			else {
+				return "Sorry, you can only have once voted for each  attempt!";
 			}
 		}
-		Block block1 = new Block(blockchain.get(blockchain.size() - 1).hash);
-		boolean isSuccess = block1.addTransaction(fromWallet.sendFunds(toWallet.publicKey, 1));
-		if(isSuccess) {
-			addBlock(block1);
-			List<Transaction> transBlock = blockchain.get(blockchain.size() - 1).transactions;
-			TransactionConvert e = new TransactionConvert(transBlock.get(0).transactionId,
-					transBlock.get(0).sender.toString(), transBlock.get(0).reciepient.toString(), name, new Date(block1.timeStamp));
-			result.add(e);
-			return "Cheers, you voted to candidate! Thank you for contributing to society!";
-		}
 		else {
-			return "Sorry, you can only have once voted for each  attempt!";
+			return "Sorry, you have not completed the Begin fucntion";
 		}
+		
 		
 	}
 
