@@ -45,7 +45,7 @@
 </head>
 
 <div id="app">
-	<jsp:include page="header.jsp"/>
+	<jsp:include page="header.jsp" />
 	<div class="container mt-5">
 		<div class="col-12 col-md-10 offset-md-1 col-lg-10 offset-lg-1">
 
@@ -53,7 +53,8 @@
 			<nav aria-label="breadcrumb mt-0">
 				<ol class="breadcrumb">
 					<%-- <li class="breadcrumb-item"><a href="<c:url value="/opening" />">Opening</a></li> --%>
-					<li class="breadcrumb-item"><a href="<c:url value="/vote-detail" />">Blockchain E-Voting System 1</a></li>
+					<li class="breadcrumb-item"><a href="<c:url value=" /vote-detail" />">Blockchain E-Voting System
+						1</a></li>
 					<li class="breadcrumb-item active" aria-current="page">Result</li>
 				</ol>
 			</nav>
@@ -61,19 +62,17 @@
 			<section class="section">
 				<div class="row section-header">
 					<div class="section-header-back">
-						<a href="<c:url value="/vote-detail" />" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
+						<a href="<c:url value=" /vote-detail" />" class="btn btn-icon"><i
+							class="fas fa-arrow-left"></i></a>
 					</div>
 					<h3>Blockchain E-Voting System 1</h3>
 				</div>
 
-				<p class="my-3 text-justify">Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit
-					amet
-					fermentum.
-					Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi.
-					At nos hinc
-					posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere.
-					Cras
-					mattis iudicium purus sit amet fermentum.</p>
+				<p class="my-3 text-justify">Blockchain-based voting system can address many of the problems faced in
+					today’s election and promises new opportunities, from securing transparency, making the voting
+					process more accessible, affordable and safe. But reflections about the risks of using electronic
+					voting systems also needs to be taken seriously in order not to increase risks and security
+					vulnerabilities in the voting process. All your infomation is secured.</p>
 			</section>
 
 			<!-- Chart -->
@@ -207,12 +206,12 @@
 </div>
 
 <script type="text/javascript">
-var listResults = '${voteResults}';
-var listResultsTemp = listResults.substr(1, listResults.length-2);
-var arrlistResults= listResultsTemp.split(", ");
-var listNames = [];
-var listVotes = [];
-arrlistResults.forEach(item =>{listNames.push(item.split(":")[0]);listVotes.push(item.split(":")[1])});
+	var listResults = '${voteResults}';
+	var listResultsTemp = listResults.substr(1, listResults.length - 2);
+	var arrlistResults = listResultsTemp.split(", ");
+	var listNames = [];
+	var listVotes = [];
+	arrlistResults.forEach(item => { listNames.push(item.split(":")[0]); listVotes.push(item.split(":")[1]) });
 
 </script>
 

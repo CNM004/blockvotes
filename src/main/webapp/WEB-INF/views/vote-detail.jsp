@@ -46,14 +46,14 @@
 
 <div id="app">
 	<!-- Header -->
-	<jsp:include page="header.jsp"/>
+	<jsp:include page="header.jsp" />
 
 	<div class="container mt-5">
 		<div class="col-12 col-md-10 offset-md-1 col-lg-10 offset-lg-1">
 
 			<nav aria-label="breadcrumb mt-0">
 				<ol class="breadcrumb">
-<!-- 					<li class="breadcrumb-item"><a href="opening.jsp">Opening</a></li> -->
+					<!-- 					<li class="breadcrumb-item"><a href="opening.jsp">Opening</a></li> -->
 					<li class="breadcrumb-item active" aria-current="page">Blockchain E-Voting System 1</li>
 				</ol>
 			</nav>
@@ -69,43 +69,40 @@
 					</h3>
 				</div>
 
-				<p class="my-3 text-justify">Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit
-					amet
-					fermentum.
-					Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi.
-					At nos hinc
-					posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere.
-					Cras
-					mattis iudicium purus sit amet fermentum.</p>
+				<p class="my-3 text-justify">Blockchain-based voting system can address many of the problems faced in
+					today’s election and promises new opportunities, from securing transparency, making the voting
+					process more accessible, affordable and safe. But reflections about the risks of using electronic
+					voting systems also needs to be taken seriously in order not to increase risks and security
+					vulnerabilities in the voting process. All your infomation is secured.</p>
 			</section>
 
 			<div class="row row-cols-1 row-cols-md-3">
-			<c:forEach items="${candidates}" var="item">
-				<div class="col mb-4">
-					<div class="card h-100">
-						<img alt="image" src="https://image.flaticon.com/icons/svg/2919/2919600.svg"
-							class="rounded-circle card-img-top mt-3" width="70" height="70" data-toggle="tooltip"
-							title="Gordon Ramsay">
-						<div class="card-body">
-							<h5 class="card-title">${item.name}</h5>
-							<p class="card-text">${item.publicKey }</p>
-							<p class="card-text">Please vote me.</p>
-						</div>
-						<div class="card-footer">
-							<div class="row justify-content-around">
-								<button type="button" class="btn btn-primary" data-toggle="modal"
-									data-target="#infoModal">
-									Infomation
-								</button>
-								<button type="button" value="${item.publicKey }" class="btn btn-danger abc" data-toggle="modal"
-									data-target="#confirmModal">
-									Vote
-								</button>
+				<c:forEach items="${candidates}" var="item">
+					<div class="col mb-4">
+						<div class="card h-100">
+							<img alt="image" src="https://image.flaticon.com/icons/svg/2919/2919600.svg"
+								class="rounded-circle card-img-top mt-3" width="70" height="70" data-toggle="tooltip"
+								title="Gordon Ramsay">
+							<div class="card-body">
+								<h5 class="card-title">${item.name}</h5>
+								<p class="card-text">${item.publicKey }</p>
+								<p class="card-text">Please vote me.</p>
+							</div>
+							<div class="card-footer">
+								<div class="row justify-content-around">
+									<button type="button" class="btn btn-primary" data-toggle="modal"
+										data-target="#infoModal">
+										Infomation
+									</button>
+									<button type="button" value="${item.publicKey }" class="btn btn-danger abc"
+										data-toggle="modal" data-target="#confirmModal">
+										Vote
+									</button>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			</c:forEach>
+				</c:forEach>
 			</div>
 
 
@@ -174,10 +171,10 @@
 						<h3>Are you sure?</h3>
 					</div>
 					<div class="row justify-content-center">
-						<form method="POST" action="<c:url value="/vote" />">
+						<form method="POST" action="<c:url value=" /vote" />">
 						<button type="button" class="btn btn-secondary m-3" data-dismiss="modal">No</button>
 						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-						<input type="hidden" name="to" value="" id="to"/>
+						<input type="hidden" name="to" value="" id="to" />
 						<button type="submit" class="btn btn-primary m-3 yesVote" data-toggle="modal"
 							data-target="#yesModal">Yes</button>
 						</form>
@@ -200,7 +197,7 @@
 						<h3>Thank you!</h3>
 					</div>
 					<div class="row justify-content-center">
-						<a href="<c:url value="/vote-result" />" class="btn btn-success">Detail</a>
+						<a href="<c:url value=" /vote-result" />" class="btn btn-success">Detail</a>
 					</div>
 				</div>
 			</div>
@@ -209,32 +206,32 @@
 </div>
 
 <script type="text/javascript">
-$(function() {
-	  $('#confirmModal').bind('show',function(){
-	      alert('howdy');
-	      $("#to").val('bosta');
-	  });
-	});
-$(".abc").on("click", function() {
-			var value = $(this).val();
-			$("#to").val(value);
+	$(function () {
+		$('#confirmModal').bind('show', function () {
+			alert('howdy');
+			$("#to").val('bosta');
 		});
-<%-- var token = $("meta[name='_csrf']").attr("content");
-var header = $("meta[name='_csrf_header']").attr("content");
-$('.yesVote').click(function(){
-	var ctx = "<%=request.getContextPath()%>";
-	var xmlhttp = new XMLHttpRequest(); 
-	var url = ctx+"/vote";
-	
-	xmlhttp.open("POST", url);
-	xmlhttp.setRequestHeader(header, token);
-	xmlhttp.onreadystatechange = function () {
-         var data = xmlhttp.responseText;
-         $("#result").empty();
+	});
+	$(".abc").on("click", function () {
+		var value = $(this).val();
+		$("#to").val(value);
+	});
+<% -- var token = $("meta[name='_csrf']").attr("content");
+	var header = $("meta[name='_csrf_header']").attr("content");
+	$('.yesVote').click(function () {
+		var ctx = "<%=request.getContextPath()%>";
+		var xmlhttp = new XMLHttpRequest();
+		var url = ctx + "/vote";
+
+		xmlhttp.open("POST", url);
+		xmlhttp.setRequestHeader(header, token);
+		xmlhttp.onreadystatechange = function () {
+			var data = xmlhttp.responseText;
+			$("#result").empty();
 			$("#result").append(data);
-    };
-	xmlhttp.send(value);
-}); --%>
+		};
+		xmlhttp.send(value);
+	}); --%>
 
 </script>
 <html>
