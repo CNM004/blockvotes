@@ -171,7 +171,7 @@
 						<h3>Are you sure?</h3>
 					</div>
 					<div class="row justify-content-center">
-						<form method="POST" action="<c:url value=" /vote" />">
+						<form method="POST" action="<c:url value="/vote" />">
 						<button type="button" class="btn btn-secondary m-3" data-dismiss="modal">No</button>
 						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 						<input type="hidden" name="to" value="" id="to" />
@@ -197,7 +197,7 @@
 						<h3>Thank you!</h3>
 					</div>
 					<div class="row justify-content-center">
-						<a href="<c:url value=" /vote-result" />" class="btn btn-success">Detail</a>
+						<a href="<c:url value="/vote-result" />" class="btn btn-success">Detail</a>
 					</div>
 				</div>
 			</div>
@@ -216,7 +216,7 @@
 		var value = $(this).val();
 		$("#to").val(value);
 	});
-<% -- var token = $("meta[name='_csrf']").attr("content");
+<%--  var token = $("meta[name='_csrf']").attr("content");
 	var header = $("meta[name='_csrf_header']").attr("content");
 	$('.yesVote').click(function () {
 		var ctx = "<%=request.getContextPath()%>";

@@ -53,16 +53,14 @@
 			<nav aria-label="breadcrumb mt-0">
 				<ol class="breadcrumb">
 					<%-- <li class="breadcrumb-item"><a href="<c:url value="/opening" />">Opening</a></li> --%>
-					<li class="breadcrumb-item"><a href="<c:url value=" /vote-detail" />">Blockchain E-Voting System
+					<li class="breadcrumb-item"><a href="<c:url value="/vote-detail" />">Blockchain E-Voting System
 						1</a></li>
 					<li class="breadcrumb-item active" aria-current="page">Result</li>
 				</ol>
 			</nav>
-
-			<section class="section">
 				<div class="row section-header">
 					<div class="section-header-back">
-						<a href="<c:url value=" /vote-detail" />" class="btn btn-icon"><i
+						<a href="<c:url value="/vote-detail" />" class="btn btn-icon"><i
 							class="fas fa-arrow-left"></i></a>
 					</div>
 					<h3>Blockchain E-Voting System 1</h3>
